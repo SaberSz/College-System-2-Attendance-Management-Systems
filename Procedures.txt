@@ -1,0 +1,20 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sendmessageImage`(IN `toid` VARCHAR(10), IN `fromid` VARCHAR(10), IN `contents` VARCHAR(10000), IN `img` MEDIUMBLOB)
+    MODIFIES SQL DATA
+BEGIN
+select max(k.MsgID)+1 into @x
+from Messages as k; 
+INSERT INTO `Messages`(`MsgID`, `ToID`, `FromID`, `Content`) VALUES (@x,toid,fromid,contents);
+INSERT INTO `MessageImages`(`MsgID`, `Images`) VALUES (@x,img);
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sendmessage`(IN `toid` VARCHAR(10), IN `fromid` VARCHAR(10), IN `contents` VARCHAR(10000))
+    MODIFIES SQL DATA
+BEGIN
+select max(k.MsgID)+1 into @x
+from Messages as k; 
+INSERT INTO `Messages`(`MsgID`, `ToID`, `FromID`, `Content`) VALUES (@x,toid,fromid,contents);
+END$$
+DELIMITER ;
