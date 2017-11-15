@@ -434,9 +434,12 @@ private double xOffset = 0;
     private void handleGit(MouseEvent event) {
          try {
              String u="https://github.com/SaberSz";
+             String k ="https://github.com/SaberSz/College-System-2-Attendance-Management-Systems";
                             Desktop desktop = java.awt.Desktop.getDesktop();
                             URI oURL = new URI(u);
                              desktop.browse(oURL);
+                              URI iURL = new URI(k);
+                             desktop.browse(iURL);
                             } catch (Exception e) { 
                                 AlertBox.notificationInfo("Error",e.getMessage());
                                      e.printStackTrace();
