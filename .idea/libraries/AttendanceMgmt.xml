@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="AttendanceMgmt">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/run1603531881/AttendanceMgmt.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

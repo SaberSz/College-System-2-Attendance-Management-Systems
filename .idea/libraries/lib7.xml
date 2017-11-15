@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="lib7">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/run1603531881/lib/com.mysql.jdbc_5.1.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/run1603531881/lib/fontawesomefx-8.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/run1603531881/lib/apache-commons-lang.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/run1603531881/lib/jfoenix.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/run1603531881/lib/controlsfx-8.40.14.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
