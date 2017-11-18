@@ -5,6 +5,7 @@
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXDrawer?>
 <?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
@@ -36,10 +37,11 @@
       </ImageView>
       <AnchorPane fx:id="NormalFaculty" prefHeight="769.0" prefWidth="1367.0">
          <children>
-            <AnchorPane fx:id="NFStudAttPane" disable="true" layoutX="14.0" layoutY="44.0" prefHeight="714.0" prefWidth="1338.0" visible="false">
+            <AnchorPane fx:id="NFStudAttPane" layoutX="14.0" layoutY="44.0" prefHeight="714.0" prefWidth="1338.0">
                <children>
-                  <TabPane prefHeight="714.0" prefWidth="1338.0" stylesheets="@TabPane.css" tabClosingPolicy="UNAVAILABLE">
-                    <tabs>
+                  <TabPane disable="true" prefHeight="714.0" prefWidth="1338.0" stylesheets="@TabPane.css" tabClosingPolicy="UNAVAILABLE" visible="false" />
+                  <JFXTabPane prefHeight="714.0" prefWidth="1338.0" stylesheets="@TabPane.css">
+                     <tabs>
                       <Tab closable="false" text="Display Attendance">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #3d3d40f4;">
@@ -189,11 +191,11 @@
                               </AnchorPane>
                           </content>
                         </Tab>
-                    </tabs>
-                  </TabPane>
+                     </tabs>
+                  </JFXTabPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="MesPane" prefHeight="773.0" prefWidth="1031.0">
+            <AnchorPane fx:id="MesPane" disable="true" prefHeight="773.0" prefWidth="1031.0" visible="false">
                <children>
                   <AnchorPane prefHeight="773.0" prefWidth="182.0" style="-fx-background-color: #3b3b40f4;">
                      <children>
