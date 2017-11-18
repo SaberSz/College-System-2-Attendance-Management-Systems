@@ -36,6 +36,7 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
@@ -60,6 +61,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
+import static javafx.scene.effect.BlurType.GAUSSIAN;
+import javafx.scene.effect.ColorAdjust;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.input.DragEvent;
 import static javafx.scene.input.KeyCode.T;
 import javafx.scene.input.MouseEvent;
@@ -315,6 +319,10 @@ static String a=null,b=null,c=null,d=null;
     private JFXTextField Composeto;
     @FXML
     private JFXTextArea composeContent;
+    @FXML
+    private AnchorPane locklogin;
+    @FXML
+    private JFXDatePicker locklogindob;
     
  @FXML
      private void handleNFAboutMeChangesButton1(MouseEvent event) {
@@ -794,21 +802,25 @@ private double xOffset = 0;
         
         
         try {
-        String sql1 = "Select sa.`Attendance` " +
+        String sql1 = "Select sa.`Attendance` , sa.`Subject Code`" +
                 "From `Student Attendance` as sa JOIN Subjects as s ON sa.`Subject Code`=s.`Subject Code` " +
                 "where sa.USN ='"+NFSAUAfilter.getText()+"' AND s.Subject='"+NFSAUAsubject.getValue()+"' ;";
         Statement stmt = javafxapplication2.JavaFXApplication2.conn.createStatement();
         ResultSet rs = stmt.executeQuery(sql1); 
         if(rs.absolute(1))
         {
+            String subCode= rs.getString(2);
+            int a=Integer.valueOf(rs.getString(1));
+            int b=Integer.valueOf(NFSAUAhours.getText());
         String sql ="Update `Student Attendance` as sa join Subjects as s " +
                 "on sa.`Subject Code` = s.`Subject Code` " +
-                "set sa.Attendance = "+(rs.getInt(1)+Integer.valueOf(NFSAUAhours.getText()))+", sa.`Absent Days`= '"+NFSAUAnewdates.getText()+"' " +
+                "set sa.Attendance = "+(rs.getInt(1)+Integer.valueOf(NFSAUAhours.getText()))+", sa.`Absent Days`= '"+NFSAUAnewdates.getText()+"', sa.USN = '"+NFSAUAfilter.getText().toUpperCase()+"', sa.`Subject Code` = '"+subCode+"'" +
         "where sa.USN = '"+NFSAUAfilter.getText()+"' AND s.Subject = '"+NFSAUAsubject.getValue()+"';";
-        if(AlertBox.alertoption("Updation" ,"Are you sure you want to change the attendance ?","Attendance = "+(rs.getInt(1)+Integer.valueOf(NFSAUAhours.getText()))+"\nAbsent Days = "+NFSAUAnewdates.getText()))
+        if(AlertBox.alertoption("Updation" ,"Are you sure you want to change the attendance ?","Attendance = "+(a+b)+" Absent Days = "+NFSAUAnewdates.getText()))
         {
+           // AlertBox.display("Input","---------"+(a+b));
             stmt.executeUpdate(sql);
-             NFStudentAttendanceUpdateTable();
+            NFStudentAttendanceUpdateTable();
         }
         
         
@@ -819,7 +831,8 @@ private double xOffset = 0;
             AlertBox.notificationWarn("Error", "Mass cannot be created or destroyed, Similarly USNs cannot be created atleast at this momnet of time. Please check the USN entered.");
         }
         } catch (SQLException ex) {
-        AlertBox.display("Error",ex.toString());
+            AlertBox.notificationWarn("Error","Please check your input.");
+       // AlertBox.display("Error",ex.toString());
         Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
     }
         
@@ -1310,7 +1323,7 @@ static String CSVfilename;
                         //For Filtering
                         NFSAUAfilter.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
                             NFSAUAdisTable.setPredicate((TreeItem<Teacher2> t) -> {
-                                Boolean flag =t.getValue().USN.getValue().contains(newValue);
+                                Boolean flag =t.getValue().USN.getValue().contains(newValue.toUpperCase());
                                 
                                 return flag;
                             });
@@ -2451,6 +2464,49 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         } catch (SQLException ex) {
             Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void handlelock(MouseEvent event) {
+        NormalFaculty.setEffect(new GaussianBlur(20));
+         NormalFaculty.setDisable(true);
+         locklogin.setDisable(false);
+         locklogin.setVisible(true);
+         locklogindob.setValue(LocalDate.now());
+    }
+
+    @FXML
+    private void handleunblur(MouseEvent event) {
+         DBMS.CheckPer pers=new DBMS.CheckPer();
+         try{
+        if(pers.checkFaculty(UserName,locklogindob.getValue().toString())){
+            System.out.println("Success"); 
+            locklogin.setDisable(true);
+         locklogin.setVisible(false);
+           NormalFaculty.setEffect(new ColorAdjust());  
+            NormalFaculty.setDisable(false);
+            locklogindob.setValue(LocalDate.now());
+           
+        }
+        else
+        {
+            System.out.println(UserName);
+            System.out.println(locklogindob.getValue().toString());
+            System.out.println(" NOt Success"); 
+            locklogindob.setValue(LocalDate.now());
+        }
+         }
+         catch(NullPointerException e)
+         { 
+             
+         }
+         catch(Exception e)
+         {
+            AlertBox.showErrorMessage(e);
+         }
+         
+         
+        
     }
              
     class Teacher1 extends RecursiveTreeObject<Teacher1> {

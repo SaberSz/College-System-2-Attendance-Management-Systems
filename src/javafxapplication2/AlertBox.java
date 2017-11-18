@@ -9,6 +9,8 @@ package javafxapplication2;
  *
  * @author dylan
  */
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.Optional;
 import javafx.stage.*;
 import javafx.scene.*;
@@ -20,6 +22,38 @@ import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 
 public class AlertBox {
+
+    
+    public static void showErrorMessage(Exception ex) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("Error occured");
+        alert.setHeaderText("Error Occured");
+        alert.setContentText(ex.getLocalizedMessage());
+
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        ex.printStackTrace(pw);
+        String exceptionText = sw.toString();
+
+        Label label = new Label("The exception stacktrace was:");
+
+        TextArea textArea = new TextArea(exceptionText);
+        textArea.setEditable(false);
+        textArea.setWrapText(true);
+
+        textArea.setMaxWidth(Double.MAX_VALUE);
+        textArea.setMaxHeight(Double.MAX_VALUE);
+        GridPane.setVgrow(textArea, Priority.ALWAYS);
+        GridPane.setHgrow(textArea, Priority.ALWAYS);
+
+        GridPane expContent = new GridPane();
+        expContent.setMaxWidth(Double.MAX_VALUE);
+        expContent.add(label, 0, 0);
+        expContent.add(textArea, 0, 1);
+
+        alert.getDialogPane().setExpandableContent(expContent);
+        alert.showAndWait();
+    }
 
     public static void display(String title, String message) {
         Stage window = new Stage();

@@ -180,6 +180,7 @@ private double xOffset = 0;
                   JavaFXApplication2.UserName=eUser.getText().toUpperCase();
                   stage=(Stage)Login21.getScene().getWindow();
                      //load up OTHER FXML document
+         
                     root = FXMLLoader.load(getClass().getResource("Faculty.fxml"));
                   //AlertBox.display("Success", "Hello "+eUser.getText().toUpperCase());
                   USN=eUser.getText().toUpperCase();
@@ -257,7 +258,18 @@ private double xOffset = 0;
                   System.out.println(JavaFXApplication2.UserName);
                   System.out.println(eDOB.getValue().toString());
                   //create a new scene with root and set the stage
-                    Scene scene = new Scene(root);
+                   
+                  BorderPane root1 = new BorderPane(root);
+
+        root1.setOnMousePressed((MouseEvent event1) -> {
+            xOffset = event1.getSceneX();
+            yOffset = event1.getSceneY();
+        });
+        root1.setOnMouseDragged((MouseEvent event1) -> {
+            stage.setX(event1.getScreenX() - xOffset);
+            stage.setY(event1.getScreenY() - yOffset);
+        });
+                    Scene scene = new Scene(root1);
                     stage.setScene(scene);
                     AlertBox.notificationInfo("Hello?", "You know a simple Hello would be nice.\n If you did say Hello, what were you thinking? ");
                     stage.show();

@@ -363,7 +363,8 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(Exception e)
         {
-            e.printStackTrace();
+           // e.printStackTrace();
+            AlertBox.showErrorMessage(e);
         }
                     
                 }
@@ -443,8 +444,8 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                     }
                     catch(SQLException e)
                     {
-                        
-                        AlertBox.display("Error",e.toString());
+                        AlertBox.showErrorMessage(e);
+                        //AlertBox.display("Error",e.toString());
                     }
                     /*catch(java.lang.NullPointerException k)
                     {
@@ -453,7 +454,8 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(SQLException ex)
         {
-            AlertBox.display("Error",ex.toString());
+            AlertBox.showErrorMessage(ex);
+            //AlertBox.display("Error",ex.toString());
              Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -514,8 +516,8 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                     }
                     catch(SQLException e)
                     {
-                        
-                        AlertBox.display("Error",e.toString());
+                        AlertBox.showErrorMessage(e);
+                       // AlertBox.display("Error",e.toString());
                     }
                     /*catch(java.lang.NullPointerException k)
                     {
@@ -524,7 +526,8 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(SQLException ex)
         {
-            AlertBox.display("Error",ex.toString());
+            AlertBox.showErrorMessage(ex);
+           // AlertBox.display("Error",ex.toString());
              Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
         }
        
@@ -585,8 +588,8 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                     }
                     catch(SQLException e)
                     {
-                        
-                        AlertBox.display("Error",e.toString());
+                        AlertBox.showErrorMessage(e);
+                       // AlertBox.display("Error",e.toString());
                     }
                     /*catch(java.lang.NullPointerException k)
                     {
@@ -595,7 +598,8 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(SQLException ex)
         {
-            AlertBox.display("Error",ex.toString());
+            AlertBox.showErrorMessage(ex);
+            //AlertBox.display("Error",ex.toString());
              Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
         }
        
@@ -658,8 +662,8 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                     }
                     catch(SQLException e)
                     {
-                        
-                        AlertBox.display("Error",e.toString());
+                        AlertBox.showErrorMessage(e);
+                        //AlertBox.display("Error",e.toString());
                     }
                     /*catch(java.lang.NullPointerException k)
                     {
@@ -668,7 +672,8 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(SQLException ex)
         {
-            AlertBox.display("Error",ex.toString());
+            AlertBox.showErrorMessage(ex);
+           // AlertBox.display("Error",ex.toString());
              Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
         }
        
@@ -735,8 +740,8 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                     }
                     catch(SQLException e)
                     {
-                        
-                        AlertBox.display("Error",e.toString());
+                        AlertBox.showErrorMessage(e);
+                       // AlertBox.display("Error",e.toString());
                     }
                     /*catch(java.lang.NullPointerException k)
                     {
@@ -745,7 +750,8 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(SQLException ex)
         {
-            AlertBox.display("Error",ex.toString());
+            AlertBox.showErrorMessage(ex);
+            //AlertBox.display("Error",ex.toString());
              Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -778,6 +784,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                            System.out.println(2);
                             AdminDrawer.setSidePane(box);
                             } catch (IOException ex) {
+                                AlertBox.showErrorMessage(ex);
                                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
                            }
                             HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition( AdminHam);//for left arrow
@@ -828,6 +835,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                 refreshTable();
                 
             } catch (SQLException ex) {
+                AlertBox.showErrorMessage(ex);
                  AlertBox.notificationWarn("Error", "There happens to be an error in your input. Please check it.\n Please make sure this USN isn't already beimng used by someone else.");
                 Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -835,6 +843,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(java.lang.NullPointerException e)
         {
+            AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
         }
     }
@@ -854,6 +863,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                 stmt.executeUpdate(sql);refreshTable();
                 
             } catch (SQLException ex) {
+                AlertBox.showErrorMessage(ex);
                  AlertBox.notificationWarn("Error", "There happens to be an error in your input. Please check it.");
                 Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -861,6 +871,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(java.lang.NullPointerException e)
         {
+            AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
         }
     }
@@ -884,6 +895,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                 
                 
             } catch (SQLException ex) {
+                AlertBox.showErrorMessage(ex);
                  AlertBox.notificationWarn("Error", "There happens to be an error in your input. Please check it.");
                 Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -891,6 +903,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(java.lang.NullPointerException e)
         {
+            AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
                 AlertBox.display("Error",e.toString());
         }
@@ -936,6 +949,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                fid1.setText(curr);refreshTable();
                 
             } catch (SQLException ex) {
+                AlertBox.showErrorMessage(ex);
                  AlertBox.notificationWarn("Error", "There happens to be an error in your input. Please check it.\n Please make sure the entered Department, Semester , Subject Code and Section exist.");
                 Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -943,6 +957,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(java.lang.NullPointerException e)
         {
+            AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
                 AlertBox.display("Error",e.toString());
         }
@@ -964,6 +979,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                 stmt.executeUpdate(sql);refreshTable();
                 
             } catch (SQLException ex) {
+                AlertBox.showErrorMessage(ex);
                  AlertBox.notificationWarn("Error", "There happens to be an error in your input. Please check it.\n Please make sure the entered Department, Semester , Subject Code and Section exist.");
                 Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -971,6 +987,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(java.lang.NullPointerException e)
         {
+            AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
                 AlertBox.display("Error",e.toString());
         }
@@ -994,6 +1011,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                 
                 
             } catch (SQLException ex) {
+                AlertBox.showErrorMessage(ex);
                  AlertBox.notificationWarn("Error", "There happens to be an error in your input. Please check it.\nTo completely delete an existing class teacher first replace the class teacher with another teacher in the Class tab.");
                 Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1001,6 +1019,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(java.lang.NullPointerException e)
         {
+            AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
                 AlertBox.display("Error",e.toString());
         }
@@ -1057,12 +1076,14 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                 }
                 else
                 {
+                   
                      AlertBox.notificationWarn("Error","Duplicate Department values.\nThis department name already exists. Please pick another name for the department to be added.");
                     
                     
                 }
                 
             } catch (SQLException ex) {
+                AlertBox.showErrorMessage(ex);
                  AlertBox.notificationWarn("Error", "There happens to be an error in your input. Please check it.");
                 Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1070,6 +1091,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(java.lang.NullPointerException e)
         {
+            AlertBox.showErrorMessage(e);
             
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
                 AlertBox.display("Error",e.toString());
@@ -1094,6 +1116,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                 stmt.executeUpdate(sql);refreshTable();
                 
             } catch (SQLException ex) {
+                AlertBox.showErrorMessage(ex);
                  AlertBox.notificationWarn("Error", "There happens to be an error in your input. Please check it.\n Please make sure the entered Faculty Identification is a HOD of the entered department.\nAlso make sure that the department names haven't been repeated, unless it's for the same Head of Department.");
                 Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1101,6 +1124,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(java.lang.NullPointerException e)
         {
+            AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
                 AlertBox.display("Error",e.toString());
         }
@@ -1124,6 +1148,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                 
                 
             } catch (SQLException ex) {
+                AlertBox.showErrorMessage(ex);
                  AlertBox.notificationWarn("Error", "There happens to be an error in your input. Please check it.\nPlease check if the department exits.");
                 Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1131,6 +1156,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(java.lang.NullPointerException e)
         {
+            AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
                 AlertBox.display("Error",e.toString());
         }
@@ -1160,6 +1186,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                }
                 
             } catch (SQLException ex) {
+                AlertBox.showErrorMessage(ex);
                  AlertBox.notificationWarn("Error", "There happens to be an error in your input. Please check it.\n Please make sure this class doesn't already exist, class teacher id and department already exists.");
                 Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1167,7 +1194,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(java.lang.NullPointerException e)
         {
-            
+            AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
               AlertBox.display("Error",e.toString());
               e.printStackTrace();
@@ -1209,6 +1236,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                }
                 
             } catch (SQLException ex) {
+                AlertBox.showErrorMessage(ex);
                  AlertBox.notificationWarn("Error", "There happens to be an error in your input. Please check it.\n Please make sure this class doesn't already exist, class teacher id and department already exists.");
                 Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1216,6 +1244,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(java.lang.NullPointerException e)
         {
+            AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
                 AlertBox.display("Error",e.toString());
         }
@@ -1253,6 +1282,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(java.lang.NullPointerException e)
         {
+            AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
                 AlertBox.display("Error",e.toString());
         }
@@ -1283,6 +1313,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(java.lang.NullPointerException e)
         {
+            AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
                 AlertBox.display("Error",e.toString());
         }
@@ -1304,6 +1335,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                 refreshTable();
                 
             } catch (SQLException ex) {
+                AlertBox.showErrorMessage(ex);
                  AlertBox.notificationWarn("Error", "There happens to be an error in your input. Please check it.\n Please make sure this subject code exists.");
                 Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1311,6 +1343,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(java.lang.NullPointerException e)
         {
+            AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
                 AlertBox.display("Error",e.toString());
         }
@@ -1337,6 +1370,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                 
                 
             } catch (SQLException ex) {
+                AlertBox.showErrorMessage(ex);
                  AlertBox.notificationWarn("Error", "There happens to be an error in your input. Please check it.\nPlease check if the department, semester and section exist.");
                 Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1344,6 +1378,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(java.lang.NullPointerException e)
         {
+            AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
                 AlertBox.display("Error",e.toString());
         }
@@ -1377,6 +1412,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
             
             stage.show();
         } catch (IOException ex) {
+            AlertBox.showErrorMessage(ex);
             Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -1413,6 +1449,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                     AlertBox.notificationInfo("Done", "Reply sent." );
                 
             } catch (SQLException ex) {
+                AlertBox.showErrorMessage(ex);
                 Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             } 
         }
@@ -1459,6 +1496,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                     
                 }
             } catch (SQLException ex) {
+                AlertBox.showErrorMessage(ex);
                 Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
             
@@ -1467,7 +1505,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(java.lang.NullPointerException e)
         {
-            
+            AlertBox.showErrorMessage(e);
            AlertBox.notificationWarn("Error", "You can't leave the foward to or reply box empty.");
         }
         
@@ -1491,6 +1529,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
             try {
                 desktop.open(file);
             } catch (IOException ex) {
+                AlertBox.showErrorMessage(ex);
                 Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -1606,6 +1645,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
             }
             
         } catch (SQLException ex) {
+            AlertBox.showErrorMessage(ex);
             Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -1737,6 +1777,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                 AlertBox.notificationInfo("All done!!","No more messages to display.");
             }
         } catch (SQLException ex) {
+            AlertBox.showErrorMessage(ex);
             Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -1773,6 +1814,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                     
                 }
             } catch (SQLException ex) {
+                AlertBox.showErrorMessage(ex);
                 Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
             
@@ -1781,7 +1823,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(java.lang.NullPointerException e)
         {
-            
+            AlertBox.showErrorMessage(e);
           AlertBox.notificationWarn("Error", "You can't send blank messages.");  
         }
         

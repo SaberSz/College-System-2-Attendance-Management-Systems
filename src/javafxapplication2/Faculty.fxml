@@ -35,9 +35,9 @@
             <GaussianBlur radius="6.16" />
          </effect>
       </ImageView>
-      <AnchorPane fx:id="NormalFaculty" prefHeight="769.0" prefWidth="1367.0">
+      <AnchorPane fx:id="NormalFaculty" disable="true" prefHeight="769.0" prefWidth="1367.0" visible="false">
          <children>
-            <AnchorPane fx:id="NFStudAttPane" layoutX="14.0" layoutY="44.0" prefHeight="714.0" prefWidth="1338.0">
+            <AnchorPane fx:id="NFStudAttPane" disable="true" layoutX="14.0" layoutY="44.0" prefHeight="714.0" prefWidth="1338.0" visible="false">
                <children>
                   <TabPane disable="true" prefHeight="714.0" prefWidth="1338.0" stylesheets="@TabPane.css" tabClosingPolicy="UNAVAILABLE" visible="false" />
                   <JFXTabPane prefHeight="714.0" prefWidth="1338.0" stylesheets="@TabPane.css">
@@ -385,7 +385,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="NFAboutMePane" layoutY="41.0" prefHeight="728.0" prefWidth="1367.0" visible="false">
+            <AnchorPane fx:id="NFAboutMePane" layoutY="41.0" prefHeight="728.0" prefWidth="1367.0">
                <children>
                   <AnchorPane layoutX="14.0" prefHeight="714.0" prefWidth="318.0" style="-fx-background-color: #3b3b40f4;">
                      <children>
@@ -474,6 +474,11 @@
                               <Font name="AppleGothic Regular" size="13.0" />
                            </font>
                         </JFXTextField>
+                        <Label layoutX="836.0" layoutY="18.0" prefHeight="32.0" prefWidth="159.0" text="My Contributions" textFill="WHITE">
+                           <font>
+                              <Font name="AppleGothic Regular" size="20.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="346.0" layoutY="469.0" prefHeight="245.0" prefWidth="1009.0" style="-fx-background-color: #3d3d40f4;">
@@ -512,11 +517,27 @@
             </AnchorPane>
             <JFXButton fx:id="logoutButton" contentDisplay="GRAPHIC_ONLY" layoutX="1305.0" layoutY="4.0" onMouseClicked="#handlelogout" prefHeight="40.0" prefWidth="38.0">
                <graphic>
-                  <MaterialDesignIconView fill="#c66868" glyphName="LOGOUT" size="30" />
+                  <MaterialDesignIconView fill="#d34646" glyphName="LOGOUT" size="30" />
                </graphic>
             </JFXButton>
             <JFXHamburger fx:id="NFHam" layoutX="14.0" layoutY="14.0" />
             <JFXDrawer fx:id="NFDrawer" defaultDrawerSize="182.0" disable="true" layoutY="41.0" prefHeight="728.0" prefWidth="182.0" visible="false" />
+            <Label contentDisplay="GRAPHIC_ONLY" layoutX="1253.0" layoutY="9.0" text="Label">
+               <graphic>
+                  <MaterialDesignIconView accessibleRole="BUTTON" fill="#d34646" glyphName="LOCK" onMouseClicked="#handlelock" size="30" />
+               </graphic>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="locklogin" disable="true" layoutX="422.0" layoutY="215.0" prefHeight="322.0" prefWidth="524.0" style="-fx-background-color: #ffffff5f; -fx-background-radius: 50em;" visible="false">
+         <children>
+            <MaterialDesignIconView fill="#3d3d42" glyphName="ACCOUNT_CIRCLE" layoutX="187.0" layoutY="145.0" size="150" />
+            <JFXDatePicker fx:id="locklogindob" defaultColor="#3d3d42" layoutX="145.0" layoutY="187.0" prefHeight="27.0" prefWidth="248.0" promptText="Date of Birth" />
+            <Label accessibleRole="BUTTON" contentDisplay="GRAPHIC_ONLY" layoutX="245.0" layoutY="259.0" onMouseClicked="#handleunblur" prefHeight="17.0" prefWidth="17.0" text="Label">
+               <graphic>
+                  <MaterialDesignIconView fill="#2c2c2f" glyphName="LOCK_OPEN" size="40" />
+               </graphic>
+            </Label>
          </children>
       </AnchorPane>
    </children>
