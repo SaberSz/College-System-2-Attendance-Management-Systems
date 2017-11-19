@@ -11,6 +11,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -25,6 +26,9 @@
          <image>
             <Image url="@Images/sw1%20copy.jpg" />
          </image>
+         <effect>
+            <ColorAdjust brightness="-0.02" contrast="-0.02" hue="-0.05" saturation="0.1" />
+         </effect>
       </ImageView>
       <AnchorPane fx:id="StudPane" layoutX="18.0" layoutY="56.875">
          <children>
@@ -104,8 +108,8 @@
                         <Font name="AppleGothic Regular" size="13.0" />
                      </font>
                   </Label>
-                  <JFXTextField fx:id="incorrectCodes" focusColor="#42a840" labelFloat="true" layoutX="15.0" layoutY="65.0" prefHeight="27.0" prefWidth="247.0" promptText="Subject Code/Name" unFocusColor="WHITE" />
-                  <JFXTextField fx:id="NoofMissedClasses" focusColor="#42a840" labelFloat="true" layoutX="15.0" layoutY="122.0" prefHeight="27.0" prefWidth="247.0" promptText="Number of Missed Classes" unFocusColor="WHITE" />
+                  <JFXTextField fx:id="incorrectCodes" focusColor="#42a840" labelFloat="true" layoutX="15.0" layoutY="65.0" prefHeight="27.0" prefWidth="247.0" promptText="Subject Code/Name" unFocusColor="#3d3d42" />
+                  <JFXTextField fx:id="NoofMissedClasses" focusColor="#42a840" labelFloat="true" layoutX="15.0" layoutY="122.0" prefHeight="27.0" prefWidth="247.0" promptText="Number of Missed Classes" unFocusColor="#3d3d42" />
                   <JFXButton fx:id="IncorrectAttendanceButton" contentDisplay="GRAPHIC_ONLY" layoutX="100.0" layoutY="191.0" onMouseClicked="#handleIncorrectAttendanceButton">
                      <graphic>
                         <MaterialDesignIconView fill="#3d3d42" glyphName="CHECK" size="40" wrappingWidth="37.99999821186066" />
@@ -115,12 +119,12 @@
             </AnchorPane>
             <AnchorPane layoutX="554.0" layoutY="6.125" prefHeight="401.0" prefWidth="487.0" style="-fx-background-color: #6d6d753b;">
                <children>
-                  <Label layoutX="154.0" layoutY="14.0" prefHeight="20.0" prefWidth="112.0" text="Apply for Leave" textFill="#6aff53" underline="true">
+                  <Label layoutX="154.0" layoutY="14.0" prefHeight="20.0" prefWidth="121.0" text="Leave Application" textFill="#6aff53" underline="true">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <JFXTextArea fx:id="RequestForLeave" focusColor="#00ff2f" layoutX="14.0" layoutY="179.0" prefHeight="152.0" prefWidth="458.0" promptText="Enter the request for leave over here. Please mention your USN, Semester, Section and Department. This request will be sent to your class teacher." unFocusColor="WHITE" />
+                  <JFXTextArea fx:id="RequestForLeave" focusColor="#00ff2f" layoutX="14.0" layoutY="179.0" prefHeight="152.0" prefWidth="458.0" promptText="Enter the request for leave over here. Please mention your USN, Semester, Section and Department. This request will be sent to your class teacher." unFocusColor="#3d3d42" />
                   <JFXDatePicker fx:id="LeaveDate" defaultColor="#3d3d42" layoutX="20.0" layoutY="66.0" prefHeight="27.0" prefWidth="400.0" promptText="Date of Absence" />
                   <JFXButton fx:id="RequestLeaveButton" contentDisplay="GRAPHIC_ONLY" layoutX="214.0" layoutY="349.0" onMouseClicked="#handleRequestLeave">
                      <graphic>

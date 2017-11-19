@@ -1652,9 +1652,9 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
     }
     
     public void fillAboutMeNFTable(String id){
-       JFXTreeTableColumn<Teacher1, String> c1 = new JFXTreeTableColumn<>("Name");
+      /* JFXTreeTableColumn<Teacher1, String> c1 = new JFXTreeTableColumn<>("Name");
        c1.setPrefWidth(100);
-        c1.setCellValueFactory((TreeTableColumn.CellDataFeatures<Teacher1, String> param) -> param.getValue().getValue().Name);
+        c1.setCellValueFactory((TreeTableColumn.CellDataFeatures<Teacher1, String> param) -> param.getValue().getValue().Name);*/
         
         JFXTreeTableColumn<Teacher1, String> c2 = new JFXTreeTableColumn<>("Subject Code");
        c2.setPrefWidth(93);
@@ -1694,13 +1694,13 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
             ResultSet rs = stmt.executeQuery(sql); 
             while(rs.next())
             {
-                users.add(new Teacher1(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),genName(rs.getString(8))));
+                users.add(new Teacher1(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),genName(rs.getString(8))));
             }
             
            
 
             final TreeItem<Teacher1> root = new RecursiveTreeItem<Teacher1>(users, RecursiveTreeObject::getChildren);
-            NFAboutMeTable.getColumns().setAll(c1,c2,c3,c4,c5,c6,c7,c8);
+            NFAboutMeTable.getColumns().setAll(c2,c3,c4,c5,c6,c7,c8);
             NFAboutMeTable.setRoot(root);
             NFAboutMeTable.setShowRoot(false);
             
@@ -1711,7 +1711,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                     NFAboutMeTable.setPredicate(new Predicate<TreeItem<Teacher1>>(){
                         @Override
                         public boolean test(TreeItem<Teacher1> t) {
-                            Boolean flag =t.getValue().Sub.getValue().contains(newValue)||t.getValue().subCode.getValue().contains(newValue)||t.getValue().HT.getValue().contains(newValue)||t.getValue().Dep.getValue().contains(newValue)||t.getValue().Sem.getValue().contains(newValue)||t.getValue().Sec.getValue().contains(newValue);
+                            Boolean flag =t.getValue().Sub.getValue().contains(newValue)||t.getValue().subCode.getValue().contains(newValue.toUpperCase())||t.getValue().HT.getValue().contains(newValue)||t.getValue().Dep.getValue().contains(newValue.toUpperCase())||t.getValue().Sem.getValue().contains(newValue)||t.getValue().Sec.getValue().contains(newValue.toUpperCase());
                             return flag;
                         }
                         
@@ -2511,7 +2511,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
              
     class Teacher1 extends RecursiveTreeObject<Teacher1> {
         //This is used in the display about me table of normal faculty
-        StringProperty Name;
+        
         StringProperty subCode;
         StringProperty Sub;
         StringProperty HT;
@@ -2520,8 +2520,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         StringProperty Sec;
         StringProperty CT;
 
-        public Teacher1(String Name,String subCode,String Sub,String HT,String Dep,  String Sem,String Sec,String CT) {
-            this.Name = new SimpleStringProperty(Name);
+        public Teacher1(String subCode,String Sub,String HT,String Dep,  String Sem,String Sec,String CT) {
             this.subCode = new SimpleStringProperty(subCode);
             this.Sub = new SimpleStringProperty(Sub);
             this.HT = new SimpleStringProperty(HT);

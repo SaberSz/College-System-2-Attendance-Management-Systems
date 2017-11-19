@@ -35,7 +35,7 @@
             <GaussianBlur radius="6.16" />
          </effect>
       </ImageView>
-      <AnchorPane fx:id="NormalFaculty" disable="true" prefHeight="769.0" prefWidth="1367.0" visible="false">
+      <AnchorPane fx:id="NormalFaculty" prefHeight="769.0" prefWidth="1367.0">
          <children>
             <AnchorPane fx:id="NFStudAttPane" disable="true" layoutX="14.0" layoutY="44.0" prefHeight="714.0" prefWidth="1338.0" visible="false">
                <children>

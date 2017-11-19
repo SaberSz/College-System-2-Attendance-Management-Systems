@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="rootA" prefHeight="671.0" prefWidth="670.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="javafxapplication2.ScreenLoaderController">
+    <stylesheets>
+        <URL value="@screenloader.css" />
+    </stylesheets>
+</AnchorPane>

@@ -32,7 +32,7 @@ public class JavaFXApplication2 extends Application {
     private double yOffset = 0;
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ScreenLoader.fxml"));
         stage.initStyle(StageStyle.UNDECORATED);
        
         BorderPane root1 = new BorderPane(root);

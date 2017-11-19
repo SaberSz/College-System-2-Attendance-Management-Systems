@@ -23,6 +23,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -36,8 +37,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 /**
  *
  * @author dylan
@@ -87,6 +90,9 @@ private double xOffset = 0;
 
    // @FXML
   //  private JFXDrawer StudentDraw;
+    @FXML
+    private AnchorPane r;
+     public static AnchorPane rootP;
 
     
     
@@ -306,6 +312,7 @@ private double xOffset = 0;
        
        
     }  
+    
     public void studPageinit()
     {
        // try {
