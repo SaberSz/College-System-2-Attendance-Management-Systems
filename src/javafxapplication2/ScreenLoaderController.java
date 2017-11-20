@@ -47,8 +47,8 @@ private double xOffset = 0;
         loadScreen(); 
        rootP=rootA;
     }    
-    public void loadScreen()
-    {
+    public void loadScreen() 
+    { 
        try {
            StackPane p =FXMLLoader.load(getClass().getResource("Load.fxml"));
            rootA.getChildren().setAll(p);

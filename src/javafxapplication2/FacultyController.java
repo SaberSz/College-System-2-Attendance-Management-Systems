@@ -1028,7 +1028,7 @@ private double xOffset = 0;
                     AlertBox.display("error in updation of no attendance", e.toString());
                     e.printStackTrace();
                 }
-              AlertBox.notificationInfo("Success","You have gifted the students what they deserve. We know you have given attendance to everyone who were present unlike some of the others.");
+              AlertBox.notificationInfo("Success","The University encourages you to interact with the students and advise accordingly");
              
             } catch (SQLException ex) {
                 Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
