@@ -869,6 +869,8 @@ private double xOffset = 0;
                 "where f.FID='"+UserName+"' AND f.SEM='"+NFSAUAsemester1.getValue()+"' AND f.Section='"+NFSAUAsection1.getValue()+"' AND ss.Subject='"+NFSAUAsubject1.getValue()+"' AND s.Dep='"+NFSAUAdep1.getValue()+"';";
         rs = stmt.executeQuery(sql);
         ObservableList<Label> users = FXCollections.observableArrayList();
+        Attselection.getSourceItems().clear();
+        Attselection.getTargetItems().clear();
         while(rs.next())
         {
             System.out.println("asdafasdfasdfasd "+rs.getString(1).toUpperCase());
@@ -1245,6 +1247,7 @@ static String CSVfilename;
                     String[] value= line.split(",");
                 String sql="Insert into `Student Attendance` (`USN`, `Subject Code`, `Attendance`, `Absent Days`) "+
                         " Values('"+value[0]+"','"+value[1]+"','"+value[2]+"','"+value[3]+"') ;";
+                System.out.println(sql);
                     Statement stmt = javafxapplication2.JavaFXApplication2.conn.createStatement();
                     stmt.executeUpdate(sql);
                     ResultSet rs = null;
@@ -1355,14 +1358,14 @@ static String CSVfilename;
     
       public void threadtock() {
    
-    System.out.println("Started....");
+    //System.out.println("Started....");
     
 final java.util.Timer timer = new java.util.Timer();
     final TimerTask delayedThreadStartTask = new TimerTask() {
         
 
         public void run() {
-System.out.println("Started..123131..");
+//System.out.println("Started..123131..");
             //captureCDRProcess();
             //moved to TimerTask
             //new Thread(new Runnable() {
@@ -1395,7 +1398,7 @@ try
 
                     }
                     else if(JavaFXApplication2.NF[2]){
-                        System.out.println("HelloMessages selected");
+                        //System.out.println("HelloMessages selected");
                             NFStudAttPane.setDisable(true);
                               NFStudAttPane.setVisible(false);
                                NFAboutMePane.setDisable(true);
@@ -1424,7 +1427,7 @@ try
                 } 
             }
             else{
-                System.out.println("Hello");
+                //System.out.println("Hello");
                 timer.cancel();  // Terminates this timer, discarding any currently scheduled tasks.
 timer.purge();   // Removes all cancelled tasks from this timer's task queue.
             }
@@ -1827,6 +1830,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
 
     public void fillStudentAttendaceNF(String id)  {
     try {
+        AttDate.setValue(LocalDate.now());
         //To fill the display Attendace tab
         //4 combo boxes, 1 filter and a display table
         String sql1 = " Select DISTINCT c.Department" +

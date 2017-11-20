@@ -55,7 +55,7 @@ private double xOffset = 0;
            FadeTransition fi = new FadeTransition(Duration.seconds(5),p);
            fi.setFromValue(0);//first opaacity will be 0 
            fi.setToValue(1);////changes to 1
-           fi.setCycleCount(2);//after one iteration of fade in  the fadeout will start
+           fi.setCycleCount(1);//after one iteration of fade in  the fadeout will start
            
            FadeTransition fo = new FadeTransition(Duration.seconds(5),p);
            fo.setFromValue(1);//first opaacity will be 1 
@@ -65,7 +65,9 @@ private double xOffset = 0;
            
            fi.play();
            fi.setOnFinished((e)->{
-           fo.play();// after fade in play fade out
+                
+                   fo.play();// after fade in play fade out
+
            });
            
            //call login

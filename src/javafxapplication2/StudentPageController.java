@@ -335,14 +335,14 @@ public class StudentPageController implements Initializable {
     
      public void threadtock() {
    
-    System.out.println("Started....");
+  //  System.out.println("Started....");
     
 final java.util.Timer timer = new java.util.Timer();
     final TimerTask delayedThreadStartTask = new TimerTask() {
         
 
         public void run() {
-System.out.println("Started..123131..");
+//System.out.println("Started..123131..");
             //captureCDRProcess();
             //moved to TimerTask
             //new Thread(new Runnable() {
@@ -392,7 +392,7 @@ try
                 } 
             }
             else{
-                System.out.println("Hello");
+               // System.out.println("Hello");
                 timer.cancel();  // Terminates this timer, discarding any currently scheduled tasks.
 timer.purge();   // Removes all cancelled tasks from this timer's task queue.
             }
@@ -669,7 +669,7 @@ try {
         try{
         List<File> files =event.getDragboard().getFiles();
         Image img = new Image(new FileInputStream(files.get(0))); 
-        File file = new File(USN+" Medical Certificate");
+        File file = new File(USN+" Medical Certificate.jpg");
         
 			// if file doesnt exists, then create it
 			if (!file.exists()) {
@@ -680,7 +680,7 @@ try {
          ImageIO.write((RenderedImage) image, "jpg", file); 
          System.out.println("We got the file. But there seems to be an error while uploading it");
           File filek=new File(USN+" Medical Certificate.jpg");
-            FileInputStream fis=new FileInputStream(filek);
+            FileInputStream fis=new FileInputStream(file);
             
              String  sql= "{ call sendmessageImage(?,?,?,?)}";
                     CallableStatement ps = javafxapplication2.JavaFXApplication2.conn.prepareCall(sql);

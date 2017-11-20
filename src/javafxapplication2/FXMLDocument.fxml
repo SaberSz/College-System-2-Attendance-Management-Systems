@@ -7,7 +7,7 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -65,10 +65,10 @@
       </AnchorPane>
       <Label layoutX="120.0" layoutY="299.0" prefHeight="75.0" prefWidth="553.0" text="Hello! I'm Dylan." textFill="WHITE">
          <font>
-            <Font name="AppleGothic Regular" size="50.0" />
+            <Font name="Avenir Next Ultra Light Italic" size="50.0" />
          </font>
          <effect>
-            <Blend />
+            <Glow level="1.0" />
          </effect>
       </Label>
       <AnchorPane prefHeight="671.0" prefWidth="110.0" style="-fx-background-color: #2664998a;">
@@ -107,12 +107,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <Label layoutX="120.0" layoutY="465.0" prefHeight="59.0" prefWidth="443.0" text="Attendance counts!" textFill="WHITE">
-         <font>
-            <Font name="Zapfino" size="22.0" />
-         </font>
-      </Label>
-      <Label contentDisplay="RIGHT" layoutX="280.0" layoutY="522.0" prefHeight="17.0" prefWidth="193.0" text="Be here" textFill="WHITE">
+      <Label contentDisplay="RIGHT" disable="true" layoutX="280.0" layoutY="522.0" prefHeight="17.0" prefWidth="193.0" text="Be here" textFill="WHITE" visible="false">
          <font>
             <Font name="Zapfino" size="22.0" />
          </font>
@@ -120,7 +115,7 @@
             <MaterialDesignIconView fill="WHITE" glyphName="CHECKBOX_MARKED_CIRCLE_OUTLINE" size="28" />
          </graphic>
       </Label>
-      <Label layoutX="376.0" layoutY="569.0" prefHeight="95.0" prefWidth="277.0" text="Every day, all day." textFill="WHITE">
+      <Label disable="true" layoutX="376.0" layoutY="569.0" prefHeight="95.0" prefWidth="277.0" text="Every day, all day." textFill="WHITE" visible="false">
          <font>
             <Font name="Zapfino" size="22.0" />
          </font>
@@ -133,6 +128,10 @@
             <FontAwesomeIconView fill="#d73939ab" glyphName="CIRCLE" size="15" />
          </graphic>
       </Label>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="212.0" layoutY="552.0" prefHeight="112.0" prefWidth="346.0" text="Your presence matters!" textFill="WHITE">
+         <font>
+            <Font name="Zapfino" size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
