@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Nov 13, 2017 at 02:49 AM
+-- Generation Time: Nov 20, 2017 at 06:14 AM
 -- Server version: 5.6.35
 -- PHP Version: 7.0.22
 
@@ -95,7 +95,7 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`FID`, `Name`, `DOB`, `Section`, `Subject Code`, `SEM`, `Dep`, `Hours Taken`) VALUES
-('FID15BT001', 'Kanye West', '1970-12-23', 'A', '15BT44', '4', 'BT', 26),
+('FID15BT001', 'Kanye West', '1970-12-23', 'A', '15BT44', '4', 'BT', 28),
 ('FID15BT001', 'Kanye West', '1970-12-23', 'B', '15BT25', '2', 'BT', 25),
 ('FID15BT002', 'Elvis Presley', '1970-11-23', 'A', '15BT24', '2', 'BT', 25),
 ('FID15BT002', 'Elvis Presley', '1970-11-23', 'A', '15BT46', '4', 'BT', 25),
@@ -107,7 +107,7 @@ INSERT INTO `faculty` (`FID`, `Name`, `DOB`, `Section`, `Subject Code`, `SEM`, `
 ('FID15BT007', 'John Rambo', '1970-11-26', 'A', '15BT21', '2', 'BT', 25),
 ('FID15BT007', 'John Rambo', '1970-11-25', 'A', '15BT23', '2', 'BT', 25),
 ('FID15BT008', 'Smith Jones', '2017-05-06', 'A', '15BT41', '4', 'BT', 25),
-('FID15BT009', 'Miller Davis', '2017-05-17', 'A', '15BT43', '4', 'BT', 27),
+('FID15BT009', 'Miller Davis', '2017-05-17', 'A', '15BT43', '4', 'BT', 28),
 ('FID15BT010', 'Hall Lopez ', '2017-05-25', 'A', '15BT42', '4', 'BT', 25),
 ('FID15BT011', 'Milnes Davos', '2017-06-17', 'B', '15BT43', '4', 'BT', 25),
 ('FID15BT012', 'Halls Lee ', '2016-05-25', 'B', '15BT42', '4', 'BT', 25),
@@ -172,7 +172,11 @@ INSERT INTO `Messages` (`MsgID`, `ToID`, `FromID`, `Content`) VALUES
 (20, 'Admin', 'FID15BT001', '2017-11-11------------------23:31\nFID15BT001\nhey I need some changes \n\n-------------------------------------------------------------------\n\n'),
 (21, 'FID15BT001', '1KS15BT001', ' Submission of Medical Certificate\n2017-11-11	23:38'),
 (22, '1KS15BT001', 'Admin', 'You were absent today for Microbiology Class.'),
-(23, 'Admin', '1KS15BT001', 'No! I wasn\'t.\nActually I was. Please don\'t tell a soul. Promise?');
+(23, 'Admin', '1KS15BT001', 'No! I wasn\'t.\nActually I was. Please don\'t tell a soul. Promise?'),
+(24, 'FID15BT001', '1KS15BT001', 'Incorrect Attendance\n2017-11-18------------------21:05\n1KS15BT001organic chemistry	0'),
+(25, 'FID15BT001', '1KS15BT001', 'Request for leave\n2017-11-18----------21:07\n1KS15BT001\n Leave Date : 2017-11-01\n Number of Days : 5\n Request :\nlgkhlkcyyix'),
+(26, '1KS15BT001', 'Admin', 'You were absent today for Microbiology Class.'),
+(27, '1KS15BT001', 'FID15BT001', 'NO');
 
 -- --------------------------------------------------------
 
@@ -235,13 +239,13 @@ CREATE TABLE `Student Attendance` (
 INSERT INTO `Student Attendance` (`USN`, `Subject Code`, `Attendance`, `Absent Days`) VALUES
 ('1KS15BT001', '15BT41', 24, '2017-10-23'),
 ('1KS15BT001', '15BT42', 23, '2017-09-10 2017-11-05'),
-('1KS15BT001', '15BT43', 24, '2017-10-23 2017-11-01 2017-11-02 2017-11-02 2017-11-16'),
-('1KS15BT001', '15BT44', 24, '2017-10-23 2017-11-11'),
+('1KS15BT001', '15BT43', 25, '2017-10-23 2017-11-01 2017-11-02 2017-11-02 2017-11-16'),
+('1KS15BT001', '15BT44', 28, ''),
 ('1KS15BT001', '15BT45', 24, '2017-10-23'),
 ('1KS15BT001', '15BT46', 22, '2017-09-10 2017-11-05 2017-07-22'),
 ('1KS15BT002', '15BT41', 24, '2017-10-23'),
 ('1KS15BT002', '15BT42', 23, '2017-09-10 2017-11-05'),
-('1KS15BT002', '15BT43', 28, '2017-10-23'),
+('1KS15BT002', '15BT43', 25, '2017-10-23'),
 ('1KS15BT002', '15BT44', 25, '2017-10-23'),
 ('1KS15BT002', '15BT45', 24, '2017-10-23'),
 ('1KS15BT002', '15BT46', 22, '2017-09-10 2017-11-05 2017-07-22'),
@@ -287,11 +291,11 @@ DROP TRIGGER IF EXISTS `HoursCheckonUpdate`;
 DELIMITER $$
 CREATE TRIGGER `HoursCheckonUpdate` BEFORE UPDATE ON `Student Attendance` FOR EACH ROW SET NEW.Attendance = IF(
     NOT EXISTS(
-      SELECT *
+     SELECT *
       FROM Faculty AS f
       JOIN `Student Attendance` AS s ON s.`Subject Code` = f.`Subject Code`
       JOIN Student AS k ON k.SEM = f.Sem AND k.Class=f.Section AND k.uSN = s.USN 
-      WHERE  NEW.Attendance > f.`Hours Taken`),
+      WHERE  NEW.Attendance > f.`Hours Taken` AND k.USN=NEW.USN AND s.`Subject Code`= NEW.`Subject Code`),
     NEW.Attendance,
     NULL)
 $$

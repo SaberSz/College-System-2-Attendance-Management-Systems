@@ -2375,7 +2375,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
     public void displaymessages(){
         try {
             ResultSet rs=null;
-            String sql = "Select FromID, Content,MsgID from Messages where ToID='"+UserName+"';";
+            String sql = "Select FromID, Content,MsgID from Messages where ToID='"+UserName+"' order by MsgID DESC;";
             Statement stmt = javafxapplication2.JavaFXApplication2.conn.createStatement();
             rs=stmt.executeQuery(sql);
             

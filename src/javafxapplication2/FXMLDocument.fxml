@@ -24,12 +24,12 @@
          <children>
             <Label contentDisplay="BOTTOM" layoutX="111.0" layoutY="37.0" text=" Sign In" textFill="WHITE">
                <font>
-                  <Font name="AppleGothic Regular" size="33.0" />
+                  <Font name="Avenir Light" size="33.0" />
                </font>
             </Label>
             <AnchorPane fx:id="StudentLogIn" prefHeight="671.0" prefWidth="346.0">
                <children>
-                  <JFXButton fx:id="Login2" contentDisplay="GRAPHIC_ONLY" layoutX="148.0" layoutY="506.0" onMouseClicked="#handleLoginButton" prefHeight="50.0" prefWidth="49.0" ripplerFill="#111111" style="-fx-background-color: #ffffff00;" text="Login">
+                  <JFXButton fx:id="Login2" contentDisplay="GRAPHIC_ONLY" layoutX="148.0" layoutY="506.0" onMouseClicked="#handleLoginButton" prefHeight="50.0" prefWidth="49.0" ripplerFill="TRANSPARENT" style="-fx-background-color: #ffffff00;" text="Login">
                      <font>
                         <Font name="AppleGothic Regular" size="13.0" />
                      </font>
@@ -41,7 +41,7 @@
             </AnchorPane>
             <AnchorPane fx:id="FacultyLogIn" prefHeight="671.0" prefWidth="346.0">
                <children>
-                  <JFXButton fx:id="Login21" contentDisplay="GRAPHIC_ONLY" layoutX="148.0" layoutY="505.0" onMouseClicked="#handleLoginButton" prefHeight="52.0" prefWidth="43.0" ripplerFill="#111111" style="-fx-background-color: #ffffff00;" text="Login">
+                  <JFXButton fx:id="Login21" contentDisplay="GRAPHIC_ONLY" layoutX="148.0" layoutY="505.0" onMouseClicked="#handleLoginButton" prefHeight="52.0" prefWidth="43.0" ripplerFill="TRANSPARENT" style="-fx-background-color: #ffffff00;" text="Login">
                      <font>
                         <Font name="AppleGothic Regular" size="13.0" />
                      </font>
@@ -102,7 +102,7 @@
             <JFXButton layoutX="-1.0" layoutY="585.0" prefHeight="24.0" prefWidth="30.0" textFill="TRANSPARENT" />
             <Label contentDisplay="GRAPHIC_ONLY" layoutX="7.0" layoutY="7.0" onMouseClicked="#handleGit" prefHeight="24.0" prefWidth="13.0" text="Label">
                <graphic>
-                  <MaterialDesignIconView fill="#dce0e3dc" glyphName="GITHUB_CIRCLE" onMouseClicked="#handleGit" size="30" wrappingWidth="33.000015169382095" />
+                  <MaterialDesignIconView fill="#d0d7d4db" glyphName="GITHUB_CIRCLE" onMouseClicked="#handleGit" size="30" wrappingWidth="33.000015169382095" />
                </graphic>
             </Label>
          </children>

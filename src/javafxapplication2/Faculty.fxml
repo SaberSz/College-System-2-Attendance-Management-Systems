@@ -181,7 +181,10 @@
                                           </JFXTextArea>
                                        </children>
                                     </AnchorPane>
-                                    <JFXTreeTableView fx:id="CSVtable" layoutX="267.0" layoutY="72.0" prefHeight="584.0" prefWidth="1050.0" />
+                                    <JFXTreeTableView fx:id="CSVtable" layoutX="267.0" layoutY="72.0" prefHeight="584.0" prefWidth="1050.0">
+                                       <columnResizePolicy>
+                                          <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy></JFXTreeTableView>
                                     <JFXButton fx:id="UploadCSV" contentDisplay="GRAPHIC_ONLY" layoutX="1274.0" layoutY="30.0" onMouseClicked="#uploadcsvDB">
                                        <graphic>
                                           <MaterialDesignIconView fill="WHITE" glyphName="CHECK" size="25" />

@@ -48,10 +48,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.StackedBarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.effect.ColorAdjust;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
@@ -74,7 +81,7 @@ public class StudentPageController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    static boolean tock=true;
+    static boolean tock=true,bar=false;
     public static String CTID;
     public  static String USN; 
      static String ids;
@@ -112,6 +119,8 @@ public class StudentPageController implements Initializable {
     @FXML
     private JFXTreeTableView<Student> AttendanceTable;
 
+    @FXML
+    private JFXTreeTableView<AnalysisDT> AnalysisTable;
     @FXML
     private JFXTextField incorrectCodes;
 
@@ -199,6 +208,16 @@ public class StudentPageController implements Initializable {
     private JFXTextField Composeto;
     @FXML
     private JFXTextArea composeContent;
+    @FXML
+    private AnchorPane Analysis;
+    @FXML
+    private BarChart<?, ?> StackedBar;
+    @FXML
+    private NumberAxis yaxis;
+    @FXML
+    private CategoryAxis xaxis;
+    @FXML
+    private AnchorPane Aboutme;
     @FXML
     private void handleIncorrectAttendanceButton(MouseEvent event)
     {
@@ -323,6 +342,7 @@ public class StudentPageController implements Initializable {
             AttendanceTable.getColumns().setAll(subject, attended, total);
             AttendanceTable.setRoot(root);
             AttendanceTable.setShowRoot(false);
+             subject.setStyle( "-fx-alignment: CENTER-LEFT;");
         }
         catch(SQLException e)
         {
@@ -427,6 +447,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                               JavaFXApplication2.SD[0]=false;
                            StudentDraw.setDisable(false);
                             StudentDraw.setVisible(true);
+                            StudentDraw.toBack();
         try{
         VBox box = FXMLLoader.load(getClass().getResource("StudentD.fxml"));
        System.out.println(2);
@@ -464,6 +485,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
             msg3.setVisible(false);
             msg4.setDisable(true);
             msg4.setVisible(false);
+           
          threadtock();
        
     }
@@ -655,7 +677,128 @@ try {
         }*/
     
 }   
+    public void stackedgraph(){
+        
+        try {
+            xaxis.getCategories().clear();
+            XYChart.Series dataSeries1 = new XYChart.Series();
+            dataSeries1.setName("Classes Attended");
+            XYChart.Series dataSeries2 = new XYChart.Series();
+            dataSeries2.setName("Average Attendance");
+            XYChart.Series dataSeries3 = new XYChart.Series();
+            dataSeries3.setName("Required Attendance");
+            Statement stmt = javafxapplication2.JavaFXApplication2.conn.createStatement();
+            String sql="Select a2.code, a1.sub,a1.att,a2.avgatt,a1.HT " +
+"from (select sa.Attendance as att, sa.`Subject Code` as code, s.Subject as sub, f.`Hours Taken` as HT " +
+"from `Student Attendance` as sa JOIN Subjects as s  " +
+"ON sa.`Subject Code`=s.`Subject Code` " +
+"JOIN Student ss ON ss.USN=sa.USN JOIN Faculty f on f.Sem=ss.Sem AND f.Section=ss.Class AND f.`Subject Code`=s.`Subject Code` " +
+"where sa.USN='"+USN+"')  a1 JOIN  " +
+"(Select ak.`Subject Code` as code,AVG(ak.Attendance) as avgatt " +
+"from `Student Attendance` as ak  " +
+"group by ak.`Subject Code`) a2 " +
+"ON a1.code=a2.code ;";
+            dataSeries1.getData().clear();
+             dataSeries2.getData().clear();
+              dataSeries3.getData().clear();
+              StackedBar.getData().clear();
+            xaxis.getCategories().addAll("Classes Attended", "Average Attendance", "Required Attendance");
+            ResultSet rs = stmt.executeQuery(sql); 
+            while(rs.next()){
+              dataSeries1.getData().add(new XYChart.Data(rs.getString(1),rs.getInt(3)));  //my Attendance
+               dataSeries2.getData().add(new XYChart.Data(rs.getString(1), rs.getInt(4)));  //average attendamce
+                dataSeries3.getData().add(new XYChart.Data(rs.getString(1), rs.getInt(5)*0.8)); //80%
+            }
 
+            StackedBar.getData().add(dataSeries1);
+            StackedBar.getData().add(dataSeries2);
+            StackedBar.getData().add(dataSeries3); 
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }
+
+     public String getto80(int att,int HT){
+        String end="";
+        
+        if(att>Math.round(HT*0.8))
+        {
+           end+="Above 80%"; 
+            
+        }
+        else
+        {
+            int need=0;
+          /*double curr=(att/HT)*100;
+          double nec=HT*0.8;
+          double c =100/HT;
+          
+          while(nec>=curr){
+              curr+=c;
+              need++;
+          }*/
+         
+          
+          need=  (int) (Math.round(HT*0.8)-att);
+           end+=need;
+           
+        }
+        
+        return end;
+    }
+    public void analysistabfill()
+    {
+        JFXTreeTableColumn<AnalysisDT, String> subject = new JFXTreeTableColumn<>("Subject");
+        subject.setPrefWidth(100);
+        subject.setCellValueFactory((TreeTableColumn.CellDataFeatures<AnalysisDT, String> param) -> param.getValue().getValue().Subject);
+        
+        JFXTreeTableColumn<AnalysisDT, String> code = new JFXTreeTableColumn<>("Subject Code");
+        code.setPrefWidth(93);
+        code.setCellValueFactory((TreeTableColumn.CellDataFeatures<AnalysisDT, String> param) -> param.getValue().getValue().SubjectCode);
+        
+        JFXTreeTableColumn<AnalysisDT, String> attended = new JFXTreeTableColumn<>("Attended");
+        attended.setPrefWidth(83);
+        attended.setCellValueFactory((TreeTableColumn.CellDataFeatures<AnalysisDT, String> param) -> param.getValue().getValue().Attended);
+
+        JFXTreeTableColumn<AnalysisDT, String> total = new JFXTreeTableColumn<>("Total");
+        total.setPrefWidth(52);
+        total.setCellValueFactory((TreeTableColumn.CellDataFeatures<AnalysisDT, String> param) -> param.getValue().getValue().Total);
+
+        JFXTreeTableColumn<AnalysisDT, String> need1 = new JFXTreeTableColumn<>("To get to 80%");
+        need1.setPrefWidth(100);
+        need1.setCellValueFactory((TreeTableColumn.CellDataFeatures<AnalysisDT, String> param) -> param.getValue().getValue().need);
+        
+        ObservableList<AnalysisDT> users1 = FXCollections.observableArrayList();
+        try{  
+            Statement stmt = javafxapplication2.JavaFXApplication2.conn.createStatement();
+            String sql ="Select ss.Subject,sa.`Subject Code`, sa.Attendance, f.`Hours Taken`"
+                    + " FROM Student as s Join `Student Attendance` as sa ON s.USN=sa.USN JOIN Faculty as f on "
+                    + "s.SEM=f.Sem AND s.Class=f.Section And sa.`Subject Code`=f.`Subject Code` "
+                    + "JOIN Subjects as ss on s.DEP=ss.Dep AND s.SEM=ss.Sem AND sa.`Subject Code`=ss.`Subject Code` where s.USN = '"+USN+"';";
+            ResultSet rs = stmt.executeQuery(sql); 
+            while(rs.next())
+            {
+                users1.add(new AnalysisDT(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),getto80(rs.getInt(3),rs.getInt(4))));
+            }
+            final TreeItem<AnalysisDT> root = new RecursiveTreeItem<AnalysisDT>(users1, RecursiveTreeObject::getChildren);
+            AnalysisTable.getColumns().setAll(subject,code,attended,total,need1);
+            AnalysisTable.setRoot(root);
+            AnalysisTable.setShowRoot(false);
+            subject.setStyle( "-fx-alignment: CENTER-LEFT;");
+            need1.setStyle( "-fx-alignment: CENTER-LEFT;");
+        }
+        catch(SQLException e)
+        {
+            
+             AlertBox.display("Error",e.toString());
+        }
+        
+        
+        
+    }
+   
     @FXML
     private void handleDragOver(DragEvent event) {
         //we need to accept only a file
@@ -1000,7 +1143,7 @@ try {
      public void displaymessages(){
         try {
             ResultSet rs=null;
-            String sql = "Select FromID, Content,MsgID from Messages where ToID='"+USN+"';";
+            String sql = "Select FromID, Content,MsgID from Messages where ToID='"+USN+"'order by MsgID DESC;";
             Statement stmt = javafxapplication2.JavaFXApplication2.conn.createStatement();
             rs=stmt.executeQuery(sql);
             
@@ -1083,6 +1226,51 @@ try {
             Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void openAnalysis(MouseEvent event) {
+     Aboutme.setDisable(true);
+        Aboutme.setEffect(new GaussianBlur(20));
+         Analysis.setDisable(false);
+         Analysis.setVisible(true);
+         //if(!bar){
+         stackedgraph();
+         stackedgraph();
+          analysistabfill();
+        // analysistabfill();
+         //bar=true;
+         //}
+         
+    }
+
+    @FXML
+    private void handleAnalysisclose(MouseEvent event) {
+        Analysis.setDisable(true);
+         Analysis.setVisible(false);
+       Aboutme.setEffect(new ColorAdjust()); 
+       Aboutme.setDisable(false);
+       
+    }
+    
+    class AnalysisDT extends RecursiveTreeObject<AnalysisDT> {
+
+        StringProperty Subject;
+        StringProperty SubjectCode;
+        StringProperty Attended;
+        StringProperty Total;
+        StringProperty need;
+
+        public AnalysisDT(String Subject,String SubjectCode, String Attended, String Total,String need) {
+            this.Subject = new SimpleStringProperty(Subject);
+            this.Attended = new SimpleStringProperty(Attended);
+            this.Total = new SimpleStringProperty(Total);
+            this.SubjectCode= new SimpleStringProperty(SubjectCode);
+            this.need= new SimpleStringProperty(need);
+            
+        }
+
+    }    
+    
 class Student extends RecursiveTreeObject<Student> {
 
         StringProperty Subject;

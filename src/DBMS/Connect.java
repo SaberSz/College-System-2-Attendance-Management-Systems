@@ -41,8 +41,8 @@ public class Connect {
             {
             if(c==0 )
             {
-            
-            JOptionPane.showMessageDialog(null, "Database Connection is Successful");
+           // AlertBox.notificationInfo("Hello","Database Connection is Successful");
+            //JOptionPane.showMessageDialog(null, "Database Connection is Successful");
             }
             c++;
             }
