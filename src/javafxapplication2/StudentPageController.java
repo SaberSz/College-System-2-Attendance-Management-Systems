@@ -706,8 +706,11 @@ try {
             ResultSet rs = stmt.executeQuery(sql); 
             while(rs.next()){
               dataSeries1.getData().add(new XYChart.Data(rs.getString(1),rs.getInt(3)));  //my Attendance
-               dataSeries2.getData().add(new XYChart.Data(rs.getString(1), rs.getInt(4)));  //average attendamce
-                dataSeries3.getData().add(new XYChart.Data(rs.getString(1), rs.getInt(5)*0.8)); //80%
+               dataSeries2.getData().add(new XYChart.Data(rs.getString(1), rs.getInt(4)));  //average attendance
+               if((rs.getInt(5)*0.8)>=rs.getInt(3)){
+                dataSeries3.getData().add(new XYChart.Data(rs.getString(1), rs.getInt(5)*0.8)); 
+               }//80%
+               // System.out.println(rs.getString(1)+" "+ rs.getInt(5)*0.8);
             }
 
             StackedBar.getData().add(dataSeries1);
@@ -1235,7 +1238,7 @@ try {
          Analysis.setVisible(true);
          //if(!bar){
          stackedgraph();
-         stackedgraph();
+        // stackedgraph();
           analysistabfill();
         // analysistabfill();
          //bar=true;
