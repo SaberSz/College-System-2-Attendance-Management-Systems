@@ -13,6 +13,7 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
@@ -362,10 +363,24 @@
          <graphic>
             <MaterialDesignIconView fill="#3d3d42" glyphName="LOGOUT" size="30" />
          </graphic>
+         <tooltip>
+            <Tooltip text="Logout Button">
+               <font>
+                  <Font name="AppleGothic Regular" size="13.0" />
+               </font>
+            </Tooltip>
+         </tooltip>
       </JFXButton>
       <Label accessibleRole="BUTTON" contentDisplay="GRAPHIC_ONLY" layoutX="976.0" layoutY="9.0" onMouseClicked="#openAnalysis" prefHeight="17.0" prefWidth="30.0">
          <graphic>
             <MaterialDesignIconView fill="#3d3d42" glyphName="CHART_BAR" size="30" />
-         </graphic></Label>
+         </graphic>
+         <tooltip>
+            <Tooltip text="Detailed Analysis">
+               <font>
+                  <Font name="AppleGothic Regular" size="13.0" />
+               </font>
+            </Tooltip>
+         </tooltip></Label>
    </children>
 </AnchorPane>

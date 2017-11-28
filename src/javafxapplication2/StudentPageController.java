@@ -702,6 +702,11 @@ try {
              dataSeries2.getData().clear();
               dataSeries3.getData().clear();
               StackedBar.getData().clear();
+              //StackedBar.getData().add(new XYChart.Series(FXCollections.observableArrayList(new XYChart.Data("",0))));
+              //StackedBar.getData().clear();
+              xaxis.setAnimated(false);
+              yaxis.setAnimated(true);
+              StackedBar.setAnimated(true);
             xaxis.getCategories().addAll("Classes Attended", "Average Attendance", "Required Attendance");
             ResultSet rs = stmt.executeQuery(sql); 
             while(rs.next()){
@@ -712,7 +717,7 @@ try {
                }//80%
                // System.out.println(rs.getString(1)+" "+ rs.getInt(5)*0.8);
             }
-
+            
             StackedBar.getData().add(dataSeries1);
             StackedBar.getData().add(dataSeries2);
             StackedBar.getData().add(dataSeries3); 
