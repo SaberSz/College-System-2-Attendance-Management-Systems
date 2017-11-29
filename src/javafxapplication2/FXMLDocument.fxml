@@ -120,18 +120,26 @@
             <Font name="Zapfino" size="22.0" />
          </font>
       </Label>
-      <Label accessibleRole="BUTTON" contentDisplay="GRAPHIC_ONLY" layoutX="1055.0" layoutY="1.0" onMouseClicked="#handleClose" prefHeight="17.0" prefWidth="11.0" textFill="WHITE">
+      <Label accessibleRole="BUTTON" contentDisplay="GRAPHIC_ONLY" layoutX="1060.0" layoutY="1.0" onMouseClicked="#handleClose" prefHeight="17.0" prefWidth="11.0" textFill="WHITE">
          <font>
             <Font name="AppleGothic Regular" size="20.0" />
          </font>
          <graphic>
-            <FontAwesomeIconView fill="#d73939ab" glyphName="CIRCLE" size="15" />
+            <FontAwesomeIconView fill="#d73939ab" glyphName="CIRCLE" size="12" />
          </graphic>
       </Label>
       <Label layoutX="212.0" layoutY="552.0" prefHeight="112.0" prefWidth="346.0" text="Your presence matters!" textFill="WHITE">
          <font>
             <Font name="Zapfino" size="25.0" />
          </font>
+      </Label>
+      <Label accessibleRole="BUTTON" contentDisplay="GRAPHIC_ONLY" layoutX="1042.0" layoutY="1.0" onMouseClicked="#handlemin" prefHeight="17.0" prefWidth="11.0" textFill="WHITE">
+         <font>
+            <Font name="AppleGothic Regular" size="20.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="#ffc454ab" glyphName="CIRCLE" size="12" />
+         </graphic>
       </Label>
    </children>
 </AnchorPane>

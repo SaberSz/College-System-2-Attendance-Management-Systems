@@ -121,7 +121,16 @@ private double xOffset = 0;
     
      @FXML
     private void handleClose(MouseEvent event) {
+        
         System.exit(0);
+    }
+    
+     @FXML
+    private void handlemin(MouseEvent event) {
+        Stage stage;
+        stage= stage=(Stage)Student.getScene().getWindow();
+        stage.setIconified(true);
+        
     }
     
      @FXML
@@ -464,6 +473,6 @@ private double xOffset = 0;
                                      e.printStackTrace();
                                }
     }
-    
+
     
 }
