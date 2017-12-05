@@ -905,7 +905,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         {
             AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
-                AlertBox.display("Error",e.toString());
+               // AlertBox.display1("Error",e.toString());
         }
         
         
@@ -959,7 +959,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         {
             AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
-                AlertBox.display("Error",e.toString());
+            //  AlertBox.display("Error",e.toString());
         }
     }
 
@@ -989,7 +989,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         {
             AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
-                AlertBox.display("Error",e.toString());
+              //  AlertBox.display("Error",e.toString());
         }
     }
 
@@ -1021,7 +1021,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         {
             AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
-                AlertBox.display("Error",e.toString());
+                //AlertBox.display("Error",e.toString());
         }
         
     }
@@ -1094,7 +1094,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
             AlertBox.showErrorMessage(e);
             
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
-                AlertBox.display("Error",e.toString());
+               // AlertBox.display("Error",e.toString());
                 e.printStackTrace();
         }
     }
@@ -1126,7 +1126,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         {
             AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
-                AlertBox.display("Error",e.toString());
+              //  AlertBox.display("Error",e.toString());
         }
     }
 
@@ -1158,7 +1158,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         {
             AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
-                AlertBox.display("Error",e.toString());
+              //  AlertBox.display("Error",e.toString());
         }
     }
 
@@ -1196,7 +1196,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         {
             AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
-              AlertBox.display("Error",e.toString());
+          //    AlertBox.display("Error",e.toString());
               e.printStackTrace();
              //  System.out.println("Hell Yeah"+fname111.getText()+dep311.getText()+fid111.getText()+fid69.getText());
         }
@@ -1246,7 +1246,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         {
             AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
-                AlertBox.display("Error",e.toString());
+             //   AlertBox.display("Error",e.toString());
         }
     }
 
@@ -1284,7 +1284,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         {
             AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
-                AlertBox.display("Error",e.toString());
+            //    AlertBox.display("Error",e.toString());
         }
         
     }
@@ -1315,7 +1315,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         {
             AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
-                AlertBox.display("Error",e.toString());
+               // AlertBox.display("Error",e.toString());
         }
     }
 
@@ -1345,7 +1345,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         {
             AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
-                AlertBox.display("Error",e.toString());
+               // AlertBox.display("Error",e.toString());
         }
         
     }
@@ -1380,7 +1380,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         {
             AlertBox.showErrorMessage(e);
               AlertBox.notificationWarn("A Gentle Request", "Please make sure to fill all the fields");
-                AlertBox.display("Error",e.toString());
+              //  AlertBox.display("Error",e.toString());
         }
     }
 

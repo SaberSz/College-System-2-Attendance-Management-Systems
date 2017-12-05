@@ -57,14 +57,15 @@ public class CheckPer extends Connect
             //conn.setAutoCommit(false);
             A:
             {    
-                System.out.println("USN:");
+                System.out.println("Student");
                // USN=keyin.next();
                 //System.out.println();
                 String sql = "Select * FROM `Student` WHERE `USN`='"+USN+"';";
+                System.out.println(sql);
                 ResultSet rs = stmt.executeQuery(sql);  
                 if(rs.absolute(1))
                 {
-                    System.out.println("USN:");
+                   // System.out.println("USN:");
                     tDOB=rs.getString(2);
                     
                     B : 
@@ -130,7 +131,7 @@ public class CheckPer extends Connect
         {
               k.printStackTrace();
         }
-        return true;
+        return false;
     }
     public boolean checkFaculty(String Name, String eDOB)
     {   
@@ -139,7 +140,7 @@ public class CheckPer extends Connect
         int ch1;
         try
         {
-              System.out.println("Login Successfuldssfdgasfsdfsad");
+              System.out.println("checkfaculty ");
             
             Statement stmt = javafxapplication2.JavaFXApplication2.conn.createStatement();
             ResultSet rs;

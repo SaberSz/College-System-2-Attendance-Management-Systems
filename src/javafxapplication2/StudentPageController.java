@@ -43,6 +43,9 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -221,7 +224,7 @@ public class StudentPageController implements Initializable {
     @FXML
     private void handleIncorrectAttendanceButton(MouseEvent event)
     {
-         AlertBox.display("","Input");
+//         AlertBox.display("","Input");
         if(incorrectCodes.getText().trim().equals("") || NoofMissedClasses.getText().trim().equals(""))
         {
             AlertBox.notificationWarn("A Gentle Request", "Please stop clicking every button you see pointlessly. I'm not in the mood of catching Null Pointer Exceptions ");
@@ -266,13 +269,15 @@ public class StudentPageController implements Initializable {
                     stage.show();
                     
     }
+
     @FXML
     private void handleRequestLeave(MouseEvent event){
         //AlertBox.display("","Input");
         try{
         if((LeaveDate.getValue().toString().equals("") || RequestForLeave.getText().trim().equals("")) || StringUtils.isEmpty(NoOfDays.getText()) ||  !StringUtils.isNumeric(NoOfDays.getText()))
         {
-            AlertBox.display("","Error in Input");
+            
+             AlertBox.notificationWarn("A Gentle Request", "Please stop clicking every button you see pointlessly. I'm not in the mood of catching Null Pointer Exceptions ");
         } else {
             WFile1(LeaveDate.getValue().toString(),RequestForLeave.getText(),NoOfDays.getText());
             AlertBox.notificationInfo("Done","We will look into this matter and get back to you shortly.");
@@ -309,7 +314,10 @@ public class StudentPageController implements Initializable {
         }
         catch(SQLException e )
         {
-            AlertBox.display("Error",e.toString());
+            //AlertBox.display("Error",e.toString());
+           
+             AlertBox.notificationWarn("Error", "error in fetching your details from the database");
+            e.printStackTrace();
         }
     }
     public void filltable(String usn) 
@@ -347,7 +355,8 @@ public class StudentPageController implements Initializable {
         catch(SQLException e)
         {
             
-             AlertBox.display("Error",e.toString());
+             AlertBox.notificationWarn("Error", "error in fetching your details from the database");e.printStackTrace();
+             //AlertBox.display("Error",e.toString());
         }
     }
     
@@ -560,7 +569,9 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                     
                 //}
             } catch (SQLException ex) {
-                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                AlertBox.notificationWarn("Error", "Error");
+                         ex.printStackTrace();
+                
             }
                         
 
@@ -654,7 +665,8 @@ try {
                     
                 //}
             } catch (SQLException ex) {
-                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                AlertBox.notificationWarn("Error", "Error");
+                         ex.printStackTrace();
             }
                         
 
@@ -799,8 +811,8 @@ try {
         }
         catch(SQLException e)
         {
-            
-             AlertBox.display("Error",e.toString());
+            e.printStackTrace();
+             //AlertBox.display("Error",e.toString());
         }
         
         
@@ -848,7 +860,7 @@ try {
         }
         catch(Exception e)
         {
-            AlertBox.display("Error",e.getMessage());
+           // AlertBox.display("Error",e.getMessage());
             AlertBox.notificationWarn("Error", "Only jpg fies are uploaded.");
             e.printStackTrace();
         }
@@ -927,11 +939,11 @@ try {
                 try {
                     output.write(b);
                 } catch (IOException ex) {
-                    Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(StudentPageController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(StudentPageController.class.getName()).log(Level.SEVERE, null, ex);
             }*/
             
             /*try {
@@ -945,13 +957,13 @@ try {
                         output.write(buffer);
                     }
                 } catch (IOException ex) {
-                    Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(StudentPageController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             } catch (FileNotFoundException ex) {
                 AlertBox.display("Error",ex.getMessage());
                 AlertBox.notificationWarn("Error","Image file corrupted");
-                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(StudentPageController.class.getName()).log(Level.SEVERE, null, ex);
             }*/
  
             oldcon=Contents;
@@ -997,7 +1009,7 @@ try {
                 AlertBox.notificationInfo("All done!!","No more messages to display.");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(StudentPageController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -1020,7 +1032,7 @@ try {
                     AlertBox.notificationInfo("Done", "Reply sent." );
                 
             } catch (SQLException ex) {
-                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(StudentPageController.class.getName()).log(Level.SEVERE, null, ex);
             } 
         }
         }
@@ -1065,7 +1077,7 @@ try {
                     
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(StudentPageController.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             
@@ -1094,7 +1106,7 @@ try {
             try {
                 desktop.open(file);
             } catch (IOException ex) {
-                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(StudentPageController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         else
@@ -1136,7 +1148,7 @@ try {
                     
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(StudentPageController.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             
@@ -1231,7 +1243,7 @@ try {
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(StudentPageController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -1259,6 +1271,8 @@ try {
        Aboutme.setDisable(false);
        
     }
+
+
     
     class AnalysisDT extends RecursiveTreeObject<AnalysisDT> {
 

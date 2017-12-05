@@ -245,7 +245,7 @@ private double xOffset = 0;
                
                 roboCounter=false;
                  notRobot.setSelected(true);
-              if(eUser.getText().equals("")|| eDOB.getValue().toString().equals("") || !(per.checkStudent(eUser.getText(),eDOB.getValue().toString())))
+              if(eUser.getText().trim().equals("")|| eDOB.getValue().toString().equals("") || !(per.checkStudent(eUser.getText().trim(),eDOB.getValue().toString())))
               {
                   System.out.println(eUser.getText());
                   System.out.println(eDOB.getValue().toString());

@@ -22,6 +22,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.AudioClip;
 import static javafxapplication2.FXMLDocumentController.rootP;
 
 /**
@@ -81,6 +82,8 @@ private double xOffset = 0;
            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
        }
     }
+  //  final AudioClip bar1Note = 
+        //    new AudioClip(getClass().getResource("speech.wav").toString());
     public void gotoLogin(){
          try {
                    Stage stage;
@@ -104,6 +107,9 @@ private double xOffset = 0;
                    stage.setScene(scene);
                    
                    stage.show();
+                 //  bar1Note.play();
+                   
+                   
                } catch (IOException ex) {
                    Logger.getLogger(ScreenLoaderController.class.getName()).log(Level.SEVERE, null, ex);
                }

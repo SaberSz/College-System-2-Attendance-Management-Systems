@@ -336,8 +336,8 @@ static String a=null,b=null,c=null,d=null;
         System.out.println(NFAboutMeChangesDOB.getValue().toString());
          if(NFAboutMeChnagesName.getText().trim().equals("")&& NFAboutMeChangesDOB.getValue().toString().trim().equals(""))
               {
-                  
-                   AlertBox.display("A Gentle Request", "Please stop clicking every button you see pointlessly. I'm not in the mood of catching Null Pointer Exceptions ");
+                  AlertBox.notificationWarn("A Gentle Request", "Please stop clicking every button you see pointlessly. I'm not in the mood of catching Null Pointer Exceptions ");
+                   //AlertBox.display("A Gentle Request", "Please stop clicking every button you see pointlessly. I'm not in the mood of catching Null Pointer Exceptions ");
               }
          else{
              
@@ -351,7 +351,8 @@ static String a=null,b=null,c=null,d=null;
                      stmt.executeUpdate(sql);
                      
                  } catch (SQLException ex) {
-                     AlertBox.display("SQLException",ex.toString());
+                     AlertBox.notificationWarn("Error", "Error changing your name");
+                    // AlertBox.display("SQLException",ex.toString());
                  }
              }
              else if (NFAboutMeChangesDOB.getValue().toString().trim().equals(""))
@@ -364,7 +365,8 @@ static String a=null,b=null,c=null,d=null;
                      stmt.executeUpdate(sql);
                      
                  } catch (SQLException ex) {
-                     AlertBox.display("SQLException",ex.toString());
+                      AlertBox.notificationWarn("Error", "Error changing your Date of Birth");
+                    // AlertBox.display("SQLException",ex.toString());
                  }
              }
              else
@@ -377,7 +379,8 @@ static String a=null,b=null,c=null,d=null;
                      stmt.executeUpdate(sql);
                      
                  } catch (SQLException ex) {
-                     AlertBox.display("SQLException",ex.toString());
+                      AlertBox.notificationWarn("Error", "Error changing your detials");
+                    // AlertBox.display("SQLException",ex.toString());
                  }
              }
              fillAboutMeNF(UserName);
@@ -403,7 +406,8 @@ static String a=null,b=null,c=null,d=null;
              fillAboutMeNFTable(UserName);
                      
                  } catch (SQLException ex) {
-                     AlertBox.display("SQLException",ex.toString());
+                      AlertBox.notificationWarn("Error", "Error in updating your details");
+                    // AlertBox.display("SQLException",ex.toString());
                  }
              }
              
@@ -525,8 +529,9 @@ private double xOffset = 0;
                     }
                     catch(SQLException e)
                     {
-                        
-                        AlertBox.display("Error",e.toString());
+                         AlertBox.notificationWarn("Error", "Error");
+                         e.printStackTrace();
+                        //AlertBox.display("Error",e.toString());
                     }
                     catch(java.lang.NullPointerException k)
                     {
@@ -535,7 +540,8 @@ private double xOffset = 0;
         }
         catch(SQLException ex)
         {
-            AlertBox.display("Error",ex.toString());
+            AlertBox.notificationWarn("Error", "Error");
+                         ex.printStackTrace();
              Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
@@ -603,7 +609,8 @@ private double xOffset = 0;
                     catch(SQLException e)
                     {
                         
-                        AlertBox.display("Error",e.toString());
+                       AlertBox.notificationWarn("Error", "Error");
+                         e.printStackTrace();
                     }
                     catch(java.lang.NullPointerException k)
                     {
@@ -612,7 +619,8 @@ private double xOffset = 0;
             }
             catch(SQLException ex)
             {
-                AlertBox.display("Error",ex.toString());
+                AlertBox.notificationWarn("Error", "Error");
+                         ex.printStackTrace();
                  Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
             } 
             }
@@ -690,7 +698,8 @@ private double xOffset = 0;
                     catch(SQLException e)
                     {
                         
-                        AlertBox.display("Error",e.toString());
+                        AlertBox.notificationWarn("Error", "Error");
+                         e.printStackTrace();
                     }
                     catch(java.lang.NullPointerException k)
                     {
@@ -699,7 +708,8 @@ private double xOffset = 0;
             }
             catch(SQLException ex)
             {
-                AlertBox.display("Error",ex.toString());
+                AlertBox.notificationWarn("Error", "Error");
+                         ex.printStackTrace();
                  Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
             } 
                 
@@ -777,7 +787,8 @@ private double xOffset = 0;
                     catch(SQLException e)
                     {
                         
-                        AlertBox.display("Error",e.toString());
+                       AlertBox.notificationWarn("Error", "Error");
+                         e.printStackTrace();
                     }
                     catch(java.lang.NullPointerException k)
                     {
@@ -786,7 +797,8 @@ private double xOffset = 0;
             }
             catch(SQLException ex)
             {
-                AlertBox.display("Error",ex.toString());
+                AlertBox.notificationWarn("Error", "Error");
+                         ex.printStackTrace();
                  Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
             }
             
@@ -939,13 +951,17 @@ private double xOffset = 0;
                 }
                 catch(Exception e)
                 {
-                    AlertBox.display("error in updation of no attendance2", e.toString());
+                    //AlertBox.display("error in updation of no attendance2", e.toString());
+                    AlertBox.notificationWarn("Error", "Error");
+                         e.printStackTrace();
                     e.printStackTrace();
                 }
                 }
                 catch(Exception e)
                 {
-                    AlertBox.display("error in updation of no attendance3", e.toString());
+                    //AlertBox.display("error in updation of no attendance3", e.toString());
+                    AlertBox.notificationWarn("Error", "Error");
+                         e.printStackTrace();
                     e.printStackTrace();
                 }
                 rs = stmt.executeQuery(sql);
@@ -976,7 +992,10 @@ private double xOffset = 0;
                 }
                 catch(Exception e)
                 {
-                  AlertBox.display("error in updation of attendance1", e.toString());
+                  //AlertBox.display("error in updation of attendance1", e.toString());
+                    AlertBox.notificationWarn("Error", "Error");
+                         e.printStackTrace();
+                    
                   e.printStackTrace();
                 }
 
@@ -1016,7 +1035,8 @@ private double xOffset = 0;
                }
                 catch(Exception e)
                 {
-                    AlertBox.display("error in updation of no attendance4", e.toString());
+                    AlertBox.notificationWarn("Error", "Error");
+                         e.printStackTrace();
                     e.printStackTrace();
                 }
                 System.out.println("Hey!!!!!---------------------------------------------------------------------------");
@@ -1027,7 +1047,8 @@ private double xOffset = 0;
                 
                 catch(Exception e)
                 {
-                    AlertBox.display("error in updation of no attendance", e.toString());
+                   AlertBox.notificationWarn("Error", "Error in updation of attendance");
+                         e.printStackTrace();
                     e.printStackTrace();
                 }
               AlertBox.notificationInfo("Success","The University encourages you to interact with the students and advise accordingly");
@@ -1217,7 +1238,7 @@ static String CSVfilename;
                     catch(Exception e)
                     {
                         
-                        AlertBox.display("Error in CSVTableFill()",e.toString());
+                        
                         AlertBox.notificationWarn("Opps", "Looks like we have encountered an error while reading your CSV file. Please check the CSV file.");
                         e.printStackTrace();
                     }
@@ -1265,11 +1286,13 @@ static String CSVfilename;
             //SEND MESSAGE TO THE ADMIN TELLING ABOUT THE UPDATE IN DATABASE
             
         } catch (IOException ex) {
-            AlertBox.display("error",ex.toString());
+            AlertBox.notificationWarn("Error", "Error");
+                         ex.printStackTrace();
             Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
         }
     } catch (FileNotFoundException ex) {
-         AlertBox.display("error",ex.toString());
+        AlertBox.notificationWarn("Error", "Error");
+                         ex.printStackTrace();
         Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
     }
         
@@ -1336,7 +1359,8 @@ static String CSVfilename;
                     catch(SQLException e)
                     {
                         
-                        AlertBox.display("Error",e.toString());
+                        AlertBox.notificationWarn("Error", "Error");
+                         e.printStackTrace();
                     }
                     catch(java.lang.NullPointerException k)
                     {
@@ -1345,7 +1369,8 @@ static String CSVfilename;
         }
         catch(SQLException ex)
         {
-            AlertBox.display("Error",ex.toString());
+           AlertBox.notificationWarn("Error", "Error");
+                         ex.printStackTrace();
              Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
         } 
         
@@ -1453,6 +1478,8 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
     /**
      * Initializes the controller class.
      */
+ 
+      
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -1573,7 +1600,9 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         }
         catch(SQLException e)
         {
-            AlertBox.display("SQLException",e.toString());
+          
+            AlertBox.notificationWarn("Error", "Error");
+                         e.printStackTrace();
         }
         
         
@@ -1637,7 +1666,9 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                
                    
            } catch (SQLException e) {
-               AlertBox.display("Error", e.toString());
+            
+              AlertBox.notificationWarn("Error", "Error");
+                         e.printStackTrace();
            }
         
         
@@ -1727,7 +1758,8 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         catch(SQLException e)
         {
             
-             AlertBox.display("Error",e.toString());
+             AlertBox.notificationWarn("Error", "Error");
+                         e.printStackTrace();
         } 
         
         
@@ -1743,7 +1775,8 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                rs.absolute(1);
                return rs.getString(1);
            } catch (SQLException ex) {
-               AlertBox.display("Error",ex.toString());
+             AlertBox.notificationWarn("Error", "Error");
+                         ex.printStackTrace();
            }
         
         return null;
@@ -1819,7 +1852,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                     
                 //}
             } catch (SQLException ex) {
-                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
             }
                         
 
@@ -2052,7 +2085,8 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
         
         
     } catch (SQLException ex) {
-        AlertBox.display("Error",ex.toString());
+        AlertBox.notificationWarn("Error", "Error");
+                         ex.printStackTrace();
     }
         
         
@@ -2154,7 +2188,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                 AlertBox.notificationInfo("All done!!","No more messages to display.");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -2176,7 +2210,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                     AlertBox.notificationInfo("Done", "Reply sent." );
                 
             } catch (SQLException ex) {
-                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
             } 
         }
         }
@@ -2222,7 +2256,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                     
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             
@@ -2252,7 +2286,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
             try {
                 desktop.open(file);
             } catch (IOException ex) {
-                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         else
@@ -2294,7 +2328,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                     
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             
@@ -2332,11 +2366,11 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                         try {
                             output.write(b);
                         } catch (IOException ex) {
-                            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
                 } catch (FileNotFoundException ex) {
-                    Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 }*/
                 try {
@@ -2351,15 +2385,16 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
                                     output.write(buffer);
                                 }
                             } catch (IOException ex) {
-                                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
                             }
                         }   } catch (SQLException ex) {
                         Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } catch (FileNotFoundException ex) {
-                AlertBox.display("Error",ex.getMessage());
+               
+                         ex.printStackTrace();
                 AlertBox.notificationWarn("Error","Image file corrupted");
-                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
                 oldcon=Contents;
@@ -2466,7 +2501,7 @@ timer.purge();   // Removes all cancelled tasks from this timer's task queue.
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

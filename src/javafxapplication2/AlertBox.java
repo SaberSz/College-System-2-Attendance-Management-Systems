@@ -55,7 +55,7 @@ public class AlertBox {
         alert.showAndWait();
     }
 
-    public static void display(String title, String message) {
+    public static void display1(String title, String message) {
         Stage window = new Stage();
         //window.initStyle(StageStyle.UNDECORATED);
         //Block events to other windows
