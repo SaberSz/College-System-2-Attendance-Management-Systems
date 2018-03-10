@@ -1,5 +1,5 @@
 # College-System-2-Attendance-Management-Systems
-This is a attendance management software developed using JavaFX for the frontend and MySql for the backend. This is part 2 of the main project College System.
+This is an attendance management software developed using JavaFX for the frontend and MySql for the backend. This is part 2 of the main project College System.
 
 ### Libraries used :
 
