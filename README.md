@@ -1,5 +1,5 @@
 # College-System-2-Attendance-Management-Systems
-image:http://img.shields.io/badge/license-MIT-blue.svg["MIT Licensed", link="http://opensource.org/licenses/MIT"]
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Build Status](https://travis-ci.org/dwyl/esta.svg?branch=master)
 ![codecov.io Code Coverage](https://img.shields.io/codecov/c/github/dwyl/hapi-auth-jwt2.svg?maxAge=2592000)
 
