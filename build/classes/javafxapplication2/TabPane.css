@@ -1,0 +1,48 @@
+
+* {
+    -fx-primary : #3d3d40f4;
+    -fx-secondary : #fc6464;
+    -fx-primarytext : #ffffff;
+    -fx-blue: #1976D2;
+    -fx-red: #FF0000;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+}
+
+.tab-pane
+{
+    -fx-tab-min-width:90px;
+}
+.tab-header-background{
+    -fx-background-color: -fx-primary;
+}
+
+.tab{
+    -fx-background-insets: 0 1 0 1,0,0;
+}
+.tab-pane .tab
+{
+    -fx-background-color:  #dce0e3a1;
+
+}
+
+.tab-pane .tab:selected
+{
+    -fx-background-color: #3d3d40f4;
+}
+
+.tab .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 13px;
+    -fx-font-weight: regular;
+    -fx-: -fx-secondary;
+}
+
+.tab:selected .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+}

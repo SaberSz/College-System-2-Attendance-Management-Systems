@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="182.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication2.AdminDrawController">
+   <children>
+      <AnchorPane prefHeight="728.0" prefWidth="182.0" style="-fx-background-color: #3d3d40f4;">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="182.0">
+               <children>
+                  <Label contentDisplay="GRAPHIC_ONLY" layoutX="34.0" layoutY="41.0" prefHeight="150.0" prefWidth="129.0" />
+                  <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_CIRCLE" layoutX="16.0" layoutY="156.0" size="150" />
+               </children>
+            </AnchorPane>
+            <VBox layoutY="200.0" prefHeight="528.0" prefWidth="182.0">
+               <children>
+                  <JFXButton fx:id="Messages" onMouseClicked="#handleMessages" prefHeight="55.0" prefWidth="182.0" ripplerFill="#325bb5d1" text="Messages" textFill="WHITE">
+                     <font>
+                        <Font name="AppleGothic Regular" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="StudAttendance" onMouseClicked="#handleStudAttendance" prefHeight="55.0" prefWidth="182.0" ripplerFill="#325bb5d1" text="Student Attendance" textFill="WHITE">
+                     <font>
+                        <Font name="AppleGothic Regular" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton disable="true" prefHeight="55.0" prefWidth="182.0" text="Syllabi" textFill="WHITE">
+                     <font>
+                        <Font name="AppleGothic Regular" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton disable="true" prefHeight="55.0" prefWidth="182.0" ripplerFill="#325bb5d1" text="Received Feedback" textFill="WHITE">
+                     <font>
+                        <Font name="AppleGothic Regular" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton disable="true" prefHeight="55.0" prefWidth="182.0" ripplerFill="#325bb5d1" text="Clubs" textFill="WHITE">
+                     <font>
+                        <Font name="AppleGothic Regular" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton disable="true" prefHeight="55.0" prefWidth="182.0" ripplerFill="#325bb5d1" text="Student Marks" textFill="WHITE">
+                     <font>
+                        <Font name="AppleGothic Regular" size="13.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

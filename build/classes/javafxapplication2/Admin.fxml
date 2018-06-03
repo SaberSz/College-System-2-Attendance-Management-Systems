@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="763.0" prefWidth="1012.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication2.AdminController">
+   <children>
+      <ImageView fitHeight="773.0" fitWidth="1083.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/adw.jpg" />
+         </image>
+         <effect>
+            <GaussianBlur />
+         </effect>
+      </ImageView>
+      <AnchorPane prefHeight="773.0" prefWidth="1031.0">
+         <children>
+            <AnchorPane fx:id="StudPane" disable="true" prefHeight="773.0" prefWidth="1031.0" visible="false">
+               <children>
+                  <TabPane layoutX="20.0" layoutY="49.0" prefHeight="702.0" prefWidth="992.0" stylesheets="@TabPane.css" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Student">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="254.0" prefWidth="361.0" style="-fx-background-color: #6d6d753b;">
+                                 <children>
+                                    <JFXTreeTableView fx:id="StudentTable" layoutX="304.0" layoutY="48.0" prefHeight="607.0" prefWidth="675.0">
+                                       <columnResizePolicy>
+                                          <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </JFXTreeTableView>
+                                    <JFXTextField fx:id="filter1" focusColor="#1dee12" labelFloat="true" layoutX="304.0" layoutY="14.0" prefHeight="27.0" prefWidth="250.0" promptText="Filter" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                    <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="646.0" prefWidth="290.0">
+                                       <children>
+                                          <JFXTextField fx:id="USN1" focusColor="#1dee12" labelFloat="true" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="250.0" promptText="University Seat Number" style="-fx-background-color: #dce0e3a1;" unFocusColor="RED" />
+                                          <JFXTextField fx:id="sem1" focusColor="#1dee12" layoutX="14.0" layoutY="99.0" prefHeight="27.0" prefWidth="251.0" promptText="Semester" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                          <JFXDatePicker fx:id="addDob" defaultColor="#3d3d42" layoutX="14.0" layoutY="55.0" prefHeight="27.0" prefWidth="251.0" promptText="Date of Birth" style="-fx-background-color: #dce0e3a1;" />
+                                          <JFXTextField fx:id="sec1" focusColor="#1dee12" layoutX="14.0" layoutY="144.0" prefHeight="27.0" prefWidth="251.0" promptText="Section" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                          <JFXTextField fx:id="dep1" focusColor="#1dee12" layoutX="14.0" layoutY="189.0" prefHeight="27.0" prefWidth="251.0" promptText="Department" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                          <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="37.0" layoutY="259.0" onMouseClicked="#handleaddStudent" prefHeight="48.0" prefWidth="50.0">
+                                             <graphic>
+                                                <MaterialDesignIconView fill="#6ae349d6" glyphName="ACCOUNT_PLUS" size="38" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXButton fx:id="updateStudent" contentDisplay="GRAPHIC_ONLY" layoutX="169.0" layoutY="259.0" onMouseClicked="#handleupdateStudent" prefHeight="48.0" prefWidth="44.0">
+                                             <graphic>
+                                                <MaterialDesignIconView fill="#07b9ff" glyphName="ACCOUNT_CHECK" size="38" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXTextField fx:id="usn2" focusColor="#1dee12" labelFloat="true" layoutX="14.0" layoutY="424.0" prefHeight="27.0" prefWidth="250.0" promptText="USN" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                          <JFXDatePicker fx:id="dob2" defaultColor="#3d3d42" layoutX="14.0" layoutY="476.0" prefHeight="27.0" prefWidth="251.0" promptText="Date of Birth" style="-fx-background-color: #dce0e3a1;" />
+                                          <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="111.0" layoutY="540.0" onMouseClicked="#handleremStudent" prefHeight="48.0" prefWidth="50.0">
+                                             <graphic>
+                                                <MaterialDesignIconView fill="#e83838d6" glyphName="ACCOUNT_REMOVE" size="38" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <Separator layoutX="19.0" layoutY="357.0" prefHeight="2.0" prefWidth="245.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="Faculty">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #6d6d753b;">
+                                 <children>
+                                    <JFXTreeTableView fx:id="FacultyTable" layoutX="303.0" layoutY="48.0" prefHeight="609.0" prefWidth="675.0">
+                                       <columnResizePolicy>
+                                          <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </JFXTreeTableView>
+                                    <AnchorPane layoutX="14.0" layoutY="12.0" prefHeight="646.0" prefWidth="290.0">
+                                       <children>
+                                          <JFXTextField fx:id="fname1" focusColor="#1dee12" labelFloat="true" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="250.0" promptText="Faculty Name" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                          <JFXTextField fx:id="sem3" focusColor="#1dee12" layoutX="14.0" layoutY="99.0" prefHeight="27.0" prefWidth="251.0" promptText="Teaching Semester" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                          <JFXDatePicker fx:id="dob3" defaultColor="#3d3d42" layoutX="14.0" layoutY="55.0" prefHeight="27.0" prefWidth="251.0" promptText="Date of Birth" style="-fx-background-color: #dce0e3a1;" />
+                                          <JFXTextField fx:id="sec3" focusColor="#1dee12" layoutX="14.0" layoutY="144.0" prefHeight="27.0" prefWidth="251.0" promptText="Teaching Section" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                          <JFXTextField fx:id="dep3" focusColor="#1dee12" layoutX="14.0" layoutY="189.0" prefHeight="27.0" prefWidth="251.0" promptText="Faculty Department" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                          <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="45.0" layoutY="323.0" onMouseClicked="#handleaddFaculty" prefHeight="48.0" prefWidth="50.0">
+                                             <graphic>
+                                                <MaterialDesignIconView fill="#6ae349d6" glyphName="ACCOUNT_PLUS" size="38" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXButton fx:id="updateStudent1" contentDisplay="GRAPHIC_ONLY" layoutX="167.0" layoutY="323.0" onMouseClicked="#handleupdateFaculty" prefHeight="48.0" prefWidth="44.0">
+                                             <graphic>
+                                                <MaterialDesignIconView fill="#07b9ff" glyphName="ACCOUNT_CHECK" size="38" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXTextField fx:id="fid2" focusColor="#1dee12" labelFloat="true" layoutX="14.0" layoutY="425.0" prefHeight="27.0" prefWidth="250.0" promptText="Faculty Identification" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                          <JFXDatePicker fx:id="dob4" defaultColor="#3d3d42" layoutX="14.0" layoutY="469.0" prefHeight="27.0" prefWidth="251.0" promptText="Date of Birth" style="-fx-background-color: #dce0e3a1;" />
+                                          <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="111.0" layoutY="598.0" onMouseClicked="#handleremFaculty" prefHeight="48.0" prefWidth="50.0">
+                                             <graphic>
+                                                <MaterialDesignIconView fill="#e33b3bd9" glyphName="ACCOUNT_REMOVE" size="38" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXTextField fx:id="fid1" focusColor="#32eb15" labelFloat="true" layoutX="15.0" layoutY="375.0" prefHeight="27.0" prefWidth="251.0" promptText="Faculty Identification" style="-fx-background-color: #e5393986;" unFocusColor="#4528e0">
+                                             <effect>
+                                                <ColorAdjust hue="0.49" />
+                                             </effect>
+                                          </JFXTextField>
+                                          <Separator layoutX="17.0" layoutY="402.0" prefHeight="23.0" prefWidth="245.0" />
+                                          <JFXTextField fx:id="sem4" focusColor="#1dee12" labelFloat="true" layoutX="15.0" layoutY="516.0" prefHeight="27.0" prefWidth="250.0" promptText="Semester" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                          <JFXTextField fx:id="sec4" focusColor="#1dee12" labelFloat="true" layoutX="14.0" layoutY="561.0" prefHeight="27.0" prefWidth="250.0" promptText="Section" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                          <JFXTextField fx:id="subcode10" focusColor="#1dee12" layoutX="15.0" layoutY="235.0" prefHeight="27.0" prefWidth="251.0" promptText="Subject Code" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                          <JFXTextField fx:id="HT1" focusColor="#1dee12" layoutX="14.0" layoutY="279.0" prefHeight="27.0" prefWidth="251.0" promptText="Hours Taken" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                       </children>
+                                    </AnchorPane>
+                                    <JFXTextField fx:id="filter11" focusColor="#1dee12" labelFloat="true" layoutX="304.0" layoutY="14.0" prefHeight="27.0" prefWidth="250.0" promptText="Filter" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab text="Department">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #6d6d753b;">
+                                 <children>
+                                    <JFXTreeTableView fx:id="HODTable" layoutX="303.0" layoutY="45.0" prefHeight="612.0" prefWidth="675.0">
+                                       <columnResizePolicy>
+                                          <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </JFXTreeTableView>
+                                    <AnchorPane layoutX="13.0" layoutY="12.0" prefHeight="646.0" prefWidth="290.0">
+                                       <children>
+                                          <JFXTextField fx:id="fname11" focusColor="#1dee12" labelFloat="true" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="250.0" promptText="Head of Department Name" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                          <JFXDatePicker fx:id="dob31" defaultColor="#3d3d42" layoutX="14.0" layoutY="55.0" prefHeight="27.0" prefWidth="251.0" promptText="Date of Birth" style="-fx-background-color: #dce0e3a1;" />
+                                          <JFXTextField fx:id="dep31" focusColor="#1dee12" layoutX="15.0" layoutY="99.0" prefHeight="27.0" prefWidth="251.0" promptText="Department" style="-fx-background-color: #dce0e3a1;" unFocusColor="RED" />
+                                          <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="35.0" layoutY="175.0" onMouseClicked="#handleaddHOD" prefHeight="48.0" prefWidth="50.0">
+                                             <graphic>
+                                                <MaterialDesignIconView fill="#6ae349d6" glyphName="ACCOUNT_PLUS" size="38" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXButton fx:id="updateStudent11" contentDisplay="GRAPHIC_ONLY" layoutX="169.0" layoutY="175.0" onMouseClicked="#handleupdateHOD" prefHeight="48.0" prefWidth="44.0">
+                                             <graphic>
+                                                <MaterialDesignIconView fill="#07b9ff" glyphName="ACCOUNT_CHECK" size="38" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXTextField fx:id="fid21" focusColor="#1dee12" labelFloat="true" layoutX="14.0" layoutY="425.0" prefHeight="27.0" prefWidth="250.0" promptText="Head of Department Identification" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                          <JFXDatePicker fx:id="dob41" defaultColor="#3d3d42" layoutX="14.0" layoutY="469.0" prefHeight="27.0" prefWidth="251.0" promptText="Date of Birth" style="-fx-background-color: #dce0e3a1;" />
+                                          <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="105.0" layoutY="584.0" onMouseClicked="#handleremHOD" prefHeight="48.0" prefWidth="50.0">
+                                             <graphic>
+                                                <MaterialDesignIconView fill="#e33b3bd9" glyphName="ACCOUNT_REMOVE" size="38" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXTextField fx:id="fid11" focusColor="#13ed29" labelFloat="true" layoutX="15.0" layoutY="258.0" prefHeight="27.0" prefWidth="251.0" promptText="Faculty Identification" style="-fx-background-color: #e5393986;" unFocusColor="#8400ff">
+                                             <effect>
+                                                <ColorAdjust hue="0.49" />
+                                             </effect>
+                                          </JFXTextField>
+                                          <Separator layoutX="18.0" layoutY="323.0" prefHeight="28.0" prefWidth="245.0" />
+                                          <JFXTextField fx:id="sem41" focusColor="#1dee12" labelFloat="true" layoutX="15.0" layoutY="516.0" prefHeight="27.0" prefWidth="250.0" promptText="Department" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                       </children>
+                                    </AnchorPane>
+                                    <JFXTextField fx:id="filter12" focusColor="#1dee12" labelFloat="true" layoutX="303.0" layoutY="12.0" prefHeight="27.0" prefWidth="250.0" promptText="Filter" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab text="Class">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #6d6d753b;">
+                                 <children>
+                                    <JFXTreeTableView fx:id="ClassTable" layoutX="303.0" layoutY="47.0" prefHeight="610.0" prefWidth="675.0">
+                                       <columnResizePolicy>
+                                          <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </JFXTreeTableView>
+                                    <AnchorPane layoutX="14.0" layoutY="12.0" prefHeight="646.0" prefWidth="290.0">
+                                       <children>
+                                          <JFXTextField fx:id="fname111" focusColor="#1dee12" labelFloat="true" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="250.0" promptText="Department" style="-fx-background-color: #dce0e3a1;" unFocusColor="RED" />
+                                          <JFXTextField fx:id="dep311" focusColor="#1dee12" layoutX="14.0" layoutY="61.0" prefHeight="27.0" prefWidth="251.0" promptText="Semester" style="-fx-background-color: #dce0e3a1;" unFocusColor="RED" />
+                                          <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="33.0" layoutY="228.0" onMouseClicked="#handleaddClass" prefHeight="48.0" prefWidth="50.0">
+                                             <graphic>
+                                                <MaterialDesignIconView fill="#6ae349d6" glyphName="PLUS_CIRCLE_OUTLINE" size="38" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXButton fx:id="updateStudent111" contentDisplay="GRAPHIC_ONLY" layoutX="168.0" layoutY="228.0" onMouseClicked="#handleupdateClass" prefHeight="43.0" prefWidth="56.0">
+                                             <graphic>
+                                                <MaterialDesignIconView fill="#07b9ff" glyphName="BORDER_COLOR" size="38" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXTextField fx:id="fid211" focusColor="#1dee12" labelFloat="true" layoutX="16.0" layoutY="473.0" prefHeight="29.0" prefWidth="250.0" promptText="Semester" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                          <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="105.0" layoutY="584.0" onMouseClicked="#handleremClass" prefHeight="48.0" prefWidth="50.0">
+                                             <graphic>
+                                                <MaterialDesignIconView fill="#e33b3bd9" glyphName="DELETE" size="38" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXTextField fx:id="fid111" focusColor="#13ed29" layoutX="14.0" layoutY="109.0" prefHeight="27.0" prefWidth="251.0" promptText="Section" style="-fx-background-color: #dce0e3a1;" unFocusColor="RED" />
+                                          <Separator layoutX="18.0" layoutY="323.0" prefHeight="28.0" prefWidth="245.0" />
+                                          <JFXTextField fx:id="sem411" focusColor="#1dee12" labelFloat="true" layoutX="16.0" layoutY="432.0" prefHeight="27.0" prefWidth="250.0" promptText="Department" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                          <JFXTextField fx:id="fid21111" focusColor="#1dee12" labelFloat="true" layoutX="16.0" layoutY="517.0" prefHeight="29.0" prefWidth="250.0" promptText="Section" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                          <JFXTextField fx:id="fid69" focusColor="#13ed29" layoutX="15.0" layoutY="158.0" prefHeight="27.0" prefWidth="251.0" promptText=" Faculty Identification of Class Teacher" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ff000000" />
+                                       </children>
+                                    </AnchorPane>
+                                    <JFXTextField fx:id="filter13" focusColor="#1dee12" labelFloat="true" layoutX="303.0" layoutY="12.0" prefHeight="27.0" prefWidth="250.0" promptText="Filter" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab text="Subjects">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #6d6d753b;">
+                                 <children>
+                                    <JFXTreeTableView fx:id="SubjectTable" layoutX="303.0" layoutY="46.0" prefHeight="611.0" prefWidth="675.0">
+                                       <columnResizePolicy>
+                                          <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </JFXTreeTableView>
+                                    <AnchorPane layoutX="14.0" layoutY="12.0" prefHeight="646.0" prefWidth="290.0">
+                                       <children>
+                                          <JFXTextField fx:id="fname1111" focusColor="#1dee12" labelFloat="true" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="250.0" promptText="Department" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                          <JFXTextField fx:id="dep3111" focusColor="#1dee12" layoutX="14.0" layoutY="61.0" prefHeight="27.0" prefWidth="251.0" promptText="Subject Code" style="-fx-background-color: #dce0e3a1;" unFocusColor="RED" />
+                                          <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="33.0" layoutY="228.0" onMouseClicked="#handleaddSubject" prefHeight="48.0" prefWidth="50.0">
+                                             <graphic>
+                                                <MaterialDesignIconView fill="#6ae349d6" glyphName="PLUS_CIRCLE_OUTLINE" size="38" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXButton fx:id="updateStudent1111" contentDisplay="GRAPHIC_ONLY" layoutX="168.0" layoutY="228.0" onMouseClicked="#handleupdateSubject" prefHeight="43.0" prefWidth="56.0">
+                                             <graphic>
+                                                <MaterialDesignIconView fill="#07b9ff" glyphName="BORDER_COLOR" size="38" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXTextField fx:id="fid2111" focusColor="#1dee12" labelFloat="true" layoutX="16.0" layoutY="436.0" prefHeight="29.0" prefWidth="250.0" promptText="Subject Code" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                          <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="103.0" layoutY="536.0" onMouseClicked="#handleremSubject" prefHeight="48.0" prefWidth="50.0">
+                                             <graphic>
+                                                <MaterialDesignIconView fill="#e33b3bd9" glyphName="DELETE" size="38" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXTextField fx:id="fid1111" focusColor="#13ed29" layoutX="14.0" layoutY="109.0" prefHeight="27.0" prefWidth="251.0" promptText="Subject Name" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ff000000" />
+                                          <Separator layoutX="18.0" layoutY="323.0" prefHeight="28.0" prefWidth="245.0" />
+                                          <JFXTextField fx:id="fid11111" focusColor="#13ed29" layoutX="15.0" layoutY="158.0" prefHeight="27.0" prefWidth="251.0" promptText="Semester" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ff000000" />
+                                       </children>
+                                    </AnchorPane>
+                                    <JFXTextField fx:id="filter14" focusColor="#1dee12" labelFloat="true" layoutX="303.0" layoutY="12.0" prefHeight="27.0" prefWidth="250.0" promptText="Filter" style="-fx-background-color: #dce0e3a1;" unFocusColor="#ffffff00" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="MesPane" layoutY="-1.0" prefHeight="773.0" prefWidth="1031.0">
+               <children>
+                  <AnchorPane prefHeight="773.0" prefWidth="182.0" style="-fx-background-color: #ffffff9e;">
+                     <children>
+                        <JFXButton fx:id="displayinbox" layoutY="245.0" onMouseClicked="#handleinbox" prefHeight="39.0" prefWidth="182.0" text="Inbox">
+                           <font>
+                              <Font name="AppleGothic Regular" size="17.0" />
+                           </font>
+                           <graphic>
+                              <MaterialDesignIconView glyphName="INBOX" size="28" />
+                           </graphic>
+                        </JFXButton>
+                     </children></AnchorPane>
+                  <AnchorPane layoutX="182.0" prefHeight="773.0" prefWidth="374.0" style="-fx-background-color: #1046c45a;">
+                     <children>
+                        <Pane prefHeight="56.0" prefWidth="378.0" style="-fx-background-color: #637eb9c2;">
+                           <children>
+                              <JFXButton fx:id="Compose" layoutX="28.0" layoutY="5.0" onMouseClicked="#handleCompose" prefHeight="49.0" prefWidth="306.0" text="Compose" textFill="WHITE">
+                                 <font>
+                                    <Font name="AppleGothic Regular" size="17.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </Pane>
+                        <AnchorPane layoutY="56.0" prefHeight="717.0" prefWidth="374.0">
+                           <children>
+                              <AnchorPane layoutY="47.0">
+                                 <children>
+                                    <VBox prefHeight="634.0" prefWidth="378.0">
+                                       <children>
+                                          <AnchorPane fx:id="msg1" onMouseClicked="#fillmsg1" prefHeight="142.0" prefWidth="378.0">
+                                             <children>
+                                                <MaterialDesignIconView fill="#ffffffaf" glyphName="ACCOUNT_CIRCLE" layoutX="14.0" layoutY="58.0" size="50" wrappingWidth="68.0" />
+                                                <Label fx:id="msg1from" layoutX="85.0" layoutY="21.0" prefHeight="29.0" prefWidth="182.0" text="FROM:" textFill="#ffffffa8">
+                                                   <font>
+                                                      <Font name="AppleGothic Regular" size="15.0" />
+                                                   </font></Label>
+                                                <JFXTextField fx:id="msg1sub" editable="false" focusColor="TRANSPARENT" layoutX="82.0" layoutY="64.0" prefHeight="29.0" prefWidth="275.0" style="-fx-background-color: #ffffffaf; -fx-background-radius: 0.75em;" text="MESSAGE" unFocusColor="TRANSPARENT">
+                                                   <font>
+                                                      <Font name="AppleGothic Regular" size="13.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane fx:id="msg2" layoutX="10.0" layoutY="10.0" onMouseClicked="#fillmsg2" prefHeight="143.0" prefWidth="378.0">
+                                             <children>
+                                                <MaterialDesignIconView fill="#ffffffaf" glyphName="ACCOUNT_CIRCLE" layoutX="14.0" layoutY="58.0" size="50" wrappingWidth="68.0" />
+                                                <Label fx:id="msg2from" layoutX="85.0" layoutY="21.0" prefHeight="29.0" prefWidth="182.0" text="FROM:" textFill="#ffffffa8">
+                                                   <font>
+                                                      <Font name="AppleGothic Regular" size="15.0" />
+                                                   </font></Label>
+                                                <JFXTextField fx:id="msg2sub" editable="false" focusColor="TRANSPARENT" layoutX="82.0" layoutY="64.0" prefHeight="29.0" prefWidth="275.0" style="-fx-background-color: #ffffffaf; -fx-background-radius: 0.75em;" text="MESSAGE" unFocusColor="TRANSPARENT">
+                                                   <font>
+                                                      <Font name="AppleGothic Regular" size="13.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane fx:id="msg3" layoutX="10.0" layoutY="123.0" onMouseClicked="#fillmsg3" prefHeight="140.0" prefWidth="378.0">
+                                             <children>
+                                                <MaterialDesignIconView fill="#ffffffaf" glyphName="ACCOUNT_CIRCLE" layoutX="14.0" layoutY="58.0" size="50" wrappingWidth="68.0" />
+                                                <Label fx:id="msg3from" layoutX="85.0" layoutY="22.0" prefHeight="29.0" prefWidth="182.0" text="FROM:" textFill="#ffffffa8">
+                                                   <font>
+                                                      <Font name="AppleGothic Regular" size="15.0" />
+                                                   </font></Label>
+                                                <JFXTextField fx:id="msg3sub" editable="false" focusColor="TRANSPARENT" layoutX="82.0" layoutY="65.0" prefHeight="29.0" prefWidth="275.0" style="-fx-background-color: #ffffffaf; -fx-background-radius: 0.75em;" text="MESSAGE" unFocusColor="TRANSPARENT">
+                                                   <font>
+                                                      <Font name="AppleGothic Regular" size="13.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane fx:id="msg4" layoutX="10.0" layoutY="236.0" onMouseClicked="#fillmsg4" prefHeight="140.0" prefWidth="378.0">
+                                             <children>
+                                                <MaterialDesignIconView fill="#ffffffaf" glyphName="ACCOUNT_CIRCLE" layoutX="14.0" layoutY="58.0" size="50" wrappingWidth="68.0" />
+                                                <Label fx:id="msg4from" layoutX="85.0" layoutY="21.0" prefHeight="29.0" prefWidth="182.0" text="FROM:" textFill="#ffffffa8">
+                                                   <font>
+                                                      <Font name="AppleGothic Regular" size="15.0" />
+                                                   </font></Label>
+                                                <JFXTextField fx:id="msg4sub" editable="false" focusColor="TRANSPARENT" layoutX="82.0" layoutY="64.0" prefHeight="29.0" prefWidth="275.0" style="-fx-background-color: #ffffffaf; -fx-background-radius: 0.75em;" text="MESSAGE" unFocusColor="TRANSPARENT">
+                                                   <font>
+                                                      <Font name="AppleGothic Regular" size="13.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane fx:id="msg5" layoutX="10.0" layoutY="349.0" onMouseClicked="#fillmsg5" prefHeight="98.0" prefWidth="378.0">
+                                             <children>
+                                                <MaterialDesignIconView fill="#ffffffaf" glyphName="ACCOUNT_CIRCLE" layoutX="14.0" layoutY="58.0" size="50" wrappingWidth="68.0" />
+                                                <Label fx:id="msg5from" layoutX="85.0" layoutY="11.0" prefHeight="29.0" prefWidth="182.0" text="FROM:" textFill="#ffffffa8">
+                                                   <font>
+                                                      <Font name="AppleGothic Regular" size="15.0" />
+                                                   </font></Label>
+                                                <JFXTextField fx:id="msg5sub" editable="false" focusColor="TRANSPARENT" layoutX="82.0" layoutY="54.0" prefHeight="29.0" prefWidth="275.0" style="-fx-background-color: #ffffffaf; -fx-background-radius: 0.75em;" text="MESSAGE" unFocusColor="TRANSPARENT">
+                                                   <font>
+                                                      <Font name="AppleGothic Regular" size="13.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                              <JFXButton fx:id="UP" contentDisplay="GRAPHIC_ONLY" layoutY="1.0" onMouseClicked="#handleup" prefHeight="23.0" prefWidth="374.0" textFill="WHITE">
+                                 <graphic>
+                                    <MaterialDesignIconView fill="WHITE" glyphName="ARROW_UP" size="25" wrappingWidth="30.0" />
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="Down" contentDisplay="GRAPHIC_ONLY" layoutY="678.0" onMouseClicked="#handledown" prefHeight="39.0" prefWidth="374.0">
+                                 <graphic>
+                                    <MaterialDesignIconView fill="WHITE" glyphName="ARROW_DOWN" size="25" />
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="INBOX" disable="true" layoutX="560.0" layoutY="1.0" visible="false">
+                     <children>
+                        <AnchorPane prefHeight="56.0" prefWidth="470.0" style="-fx-background-color: #3b3b407d;">
+                           <children>
+                              <JFXButton fx:id="reply" contentDisplay="GRAPHIC_ONLY" layoutX="14.0" layoutY="3.0" onMouseClicked="#handleReply" prefHeight="50.0" prefWidth="43.0">
+                                 <graphic>
+                                    <MaterialDesignIconView fill="WHITE" glyphName="REPLY" size="25" wrappingWidth="25.0" />
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="forward" contentDisplay="GRAPHIC_ONLY" layoutX="57.0" onMouseClicked="#handleForward" prefHeight="56.0" prefWidth="48.0">
+                                 <graphic>
+                                    <MaterialDesignIconView fill="WHITE" glyphName="FORWARD" size="25" />
+                                 </graphic>
+                              </JFXButton>
+                              <JFXTextField fx:id="forwardto" focusColor="#28ff00" labelFloat="true" layoutX="105.0" layoutY="15.0" prefHeight="27.0" prefWidth="286.0" promptText="Forward to" style="-fx-background-color: #ffffffaf; -fx-background-radius: 0.75em;" unFocusColor="TRANSPARENT" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutY="56.0" prefHeight="717.0" prefWidth="470.0">
+                           <children>
+                              <MaterialDesignIconView fill="#ffffffaf" glyphName="ACCOUNT_CIRCLE" layoutX="14.0" layoutY="58.0" size="50" wrappingWidth="59.0" />
+                              <Label fx:id="inboxfrom" layoutX="73.0" layoutY="25.0" prefHeight="29.0" prefWidth="359.0" text="From" textFill="WHITE">
+                                 <font>
+                                    <Font name="AppleGothic Regular" size="16.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextArea fx:id="Content" editable="false" focusColor="TRANSPARENT" layoutX="8.0" layoutY="101.0" prefHeight="354.0" prefWidth="454.0" style="-fx-background-color: #ffffff9e; -fx-background-radius: 0.75em;" unFocusColor="TRANSPARENT" />
+                              <JFXButton fx:id="ImageShow" contentDisplay="GRAPHIC_ONLY" layoutX="421.0" layoutY="64.0" onMouseClicked="#handleImageShow" prefHeight="30.0" prefWidth="30.0">
+                                 <graphic>
+                                    <MaterialDesignIconView fill="WHITE" glyphName="ATTACHMENT" size="20" />
+                                 </graphic>
+                              </JFXButton>
+                              <JFXTextArea fx:id="replymsg" focusColor="LIME" labelFloat="true" layoutX="8.0" layoutY="481.0" prefHeight="188.0" prefWidth="454.0" promptText="Reply" style="-fx-background-color: #ffffff9e; -fx-background-radius: 0.5em;" unFocusColor="WHITE" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="COMPOSEPane" layoutX="560.0" layoutY="1.0" prefHeight="773.0" prefWidth="470.0">
+                     <children>
+                        <AnchorPane layoutY="-1.0" prefHeight="56.0" prefWidth="470.0" style="-fx-background-color: #3d3d42af;">
+                           <children>
+                              <JFXButton fx:id="sendcompose" contentDisplay="GRAPHIC_ONLY" layoutX="24.0" layoutY="11.0" onMouseClicked="#handlesendcompose" prefHeight="35.0" prefWidth="38.0">
+                                 <graphic>
+                                    <MaterialDesignIconView fill="WHITE" glyphName="SEND" size="25" />
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutY="55.0" prefHeight="717.0" prefWidth="470.0">
+                           <children>
+                              <MaterialDesignIconView fill="#ffffffaf" glyphName="ACCOUNT_CIRCLE" layoutX="14.0" layoutY="56.0" size="50" wrappingWidth="68.0" />
+                              <JFXTextField fx:id="Composeto" focusColor="#00ff04" labelFloat="true" layoutX="88.0" layoutY="21.0" prefHeight="23.0" prefWidth="295.0" promptText="To ID" style="-fx-background-color: #ffffffaf; -fx-background-radius: 0.75em;" unFocusColor="TRANSPARENT">
+                                 <font>
+                                    <Font name="AppleGothic Regular" size="15.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextArea fx:id="composeContent" focusColor="#00ff15" labelFloat="true" layoutX="12.0" layoutY="123.0" prefHeight="578.0" prefWidth="446.0" promptText="Message" style="-fx-background-color: #ffffffaf; -fx-background-radius: 0.30em;" unFocusColor="#ffffff00">
+                                 <font>
+                                    <Font name="AppleGothic Regular" size="13.0" />
+                                 </font>
+                              </JFXTextArea>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <JFXHamburger fx:id="AdminHam" layoutX="22.0" layoutY="14.0" prefHeight="23.0" prefWidth="30.0" />
+            <JFXButton fx:id="logoutButton" contentDisplay="GRAPHIC_ONLY" layoutX="984.0" layoutY="6.0" onMouseClicked="#logout">
+               <graphic>
+                  <MaterialDesignIconView fill="#dce0e3c1" glyphName="LOGOUT" size="29" />
+               </graphic></JFXButton>
+            <JFXDrawer fx:id="AdminDrawer" defaultDrawerSize="182.0" disable="true" layoutY="45.0" prefHeight="728.0" prefWidth="182.0" visible="false" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

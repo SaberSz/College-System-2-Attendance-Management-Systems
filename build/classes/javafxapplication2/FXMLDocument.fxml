@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="r" prefHeight="671.0" prefWidth="1074.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication2.FXMLDocumentController">
+   <children>
+      <ImageView fitHeight="671.0" fitWidth="1173.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/fut.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="673.0" prefHeight="671.0" prefWidth="346.0" style="-fx-background-color: #2664998a;">
+         <children>
+            <Label contentDisplay="BOTTOM" layoutX="111.0" layoutY="37.0" text=" Sign In" textFill="WHITE">
+               <font>
+                  <Font name="Avenir Light" size="33.0" />
+               </font>
+            </Label>
+            <AnchorPane fx:id="StudentLogIn" prefHeight="671.0" prefWidth="346.0">
+               <children>
+                  <JFXButton fx:id="Login2" contentDisplay="GRAPHIC_ONLY" layoutX="148.0" layoutY="506.0" onMouseClicked="#handleLoginButton" prefHeight="50.0" prefWidth="49.0" ripplerFill="TRANSPARENT" style="-fx-background-color: #ffffff00;" text="Login">
+                     <font>
+                        <Font name="AppleGothic Regular" size="13.0" />
+                     </font>
+                     <graphic>
+                        <MaterialDesignIconView fill="#dadfe3" glyphName="ARROW_RIGHT_BOLD_CIRCLE_OUTLINE" size="40" stroke="#166ba4c9" text="" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="FacultyLogIn" prefHeight="671.0" prefWidth="346.0">
+               <children>
+                  <JFXButton fx:id="Login21" contentDisplay="GRAPHIC_ONLY" layoutX="148.0" layoutY="505.0" onMouseClicked="#handleLoginButton" prefHeight="52.0" prefWidth="43.0" ripplerFill="TRANSPARENT" style="-fx-background-color: #ffffff00;" text="Login">
+                     <font>
+                        <Font name="AppleGothic Regular" size="13.0" />
+                     </font>
+                     <graphic>
+                        <MaterialDesignIconView fill="#dadfe3" glyphName="ARROW_RIGHT_BOLD_CIRCLE_OUTLINE" size="40" stroke="#166ba4c9" text="" wrappingWidth="44.0" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+            <JFXTextField fx:id="eUser" focusColor="#15d044" labelFloat="true" layoutX="39.0" layoutY="296.0" prefHeight="27.0" prefWidth="277.0" promptText="Username" style="-fx-background-color: #dadfe3c8;" unFocusColor="#2276aec9" />
+            <JFXDatePicker fx:id="eDOB" defaultColor="#266499" layoutX="39.0" layoutY="346.0" prefHeight="30.0" prefWidth="277.0" promptText=" Date Of Birth" style="-fx-background-color: #dadfe3c8;" />
+            <JFXCheckBox fx:id="notRobot" layoutX="39.0" layoutY="412.0" onMouseClicked="#handleNotRobot" selected="true" text="Robot" textFill="WHITE" unCheckedColor="#c92626" underline="true">
+               <font>
+                  <Font name="AppleGothic Regular" size="13.0" />
+               </font>
+               <graphic>
+                  <MaterialDesignIconView fill="#129dc4" size="24" text="" />
+               </graphic></JFXCheckBox>
+            <MaterialDesignIconView fill="#dce0e3db" glyphName="ACCOUNT_CIRCLE" layoutX="98.0" layoutY="225.0" size="150" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="120.0" layoutY="299.0" prefHeight="75.0" prefWidth="553.0" text="Hello! I'm Dylan." textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Ultra Light Italic" size="50.0" />
+         </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect>
+      </Label>
+      <AnchorPane prefHeight="671.0" prefWidth="110.0" style="-fx-background-color: #2664998a;">
+         <children>
+            <JFXButton fx:id="Faculty" layoutX="9.0" layoutY="361.0" onMouseClicked="#handleFacultyEntry" prefHeight="35.0" prefWidth="100.0" text="Faculty" textFill="WHITE">
+               <font>
+                  <Font name="AppleGothic Regular" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="Student" layoutX="9.0" layoutY="290.0" onMouseClicked="#handleStudentEntry" prefHeight="35.0" prefWidth="99.0" text="Student" textFill="WHITE">
+               <font>
+                  <Font name="AppleGothic Regular" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="l1" layoutX="43.0" layoutY="123.0" onMouseClicked="#handlel1" prefHeight="24.0" prefWidth="27.0" textFill="TRANSPARENT" />
+            <JFXButton fx:id="l2" layoutX="80.0" layoutY="205.0" onMouseClicked="#handlel2" prefHeight="27.0" prefWidth="23.0" textFill="TRANSPARENT" />
+            <JFXButton fx:id="l3" layoutX="43.0" layoutY="263.0" onMouseClicked="#handlel3" prefHeight="24.0" prefWidth="27.0" textFill="TRANSPARENT" />
+            <JFXButton fx:id="l4" layoutX="9.0" layoutY="263.0" onMouseClicked="#handlel4" prefHeight="24.0" prefWidth="22.0" textFill="TRANSPARENT" />
+            <JFXButton fx:id="l5" layoutX="40.0" layoutY="565.0" onMouseClicked="#handlel5" prefHeight="27.0" prefWidth="2.0" textFill="TRANSPARENT" />
+            <JFXButton fx:id="l9" layoutX="80.0" layoutY="476.0" onMouseClicked="#handlel9" prefHeight="24.0" prefWidth="15.0" textFill="TRANSPARENT" />
+            <JFXButton fx:id="l7" layoutX="40.0" layoutY="417.0" onMouseClicked="#handlel7" prefHeight="24.0" prefWidth="30.0" textFill="TRANSPARENT" />
+            <JFXButton fx:id="l8" layoutX="80.0" layoutY="410.0" onMouseClicked="#handlel8" prefHeight="24.0" prefWidth="23.0" textFill="TRANSPARENT" />
+            <JFXButton fx:id="l6" layoutX="42.0" layoutY="489.0" onMouseClicked="#handlel6" prefHeight="24.0" prefWidth="15.0" textFill="TRANSPARENT" />
+            <JFXButton fx:id="l10" layoutX="80.0" layoutY="545.0" onMouseClicked="#handlel10" prefHeight="27.0" prefWidth="23.0" textFill="TRANSPARENT" />
+            <JFXButton layoutX="9.0" layoutY="185.0" prefHeight="27.0" prefWidth="15.0" textFill="TRANSPARENT" />
+            <JFXButton layoutX="44.0" layoutY="192.0" prefHeight="27.0" prefWidth="15.0" textFill="TRANSPARENT" />
+            <JFXButton layoutX="81.0" layoutY="137.0" prefHeight="27.0" prefWidth="23.0" textFill="TRANSPARENT" />
+            <JFXButton layoutX="80.0" layoutY="270.0" prefHeight="24.0" prefWidth="30.0" textFill="TRANSPARENT" />
+            <JFXButton layoutX="-1.0" layoutY="424.0" prefHeight="24.0" prefWidth="15.0" textFill="TRANSPARENT" />
+            <JFXButton layoutX="-1.0" layoutY="503.0" prefHeight="24.0" prefWidth="30.0" textFill="TRANSPARENT" />
+            <JFXButton layoutX="-1.0" layoutY="585.0" prefHeight="24.0" prefWidth="30.0" textFill="TRANSPARENT" />
+            <Label contentDisplay="GRAPHIC_ONLY" layoutX="7.0" layoutY="7.0" onMouseClicked="#handleGit" prefHeight="24.0" prefWidth="13.0" text="Label">
+               <graphic>
+                  <MaterialDesignIconView fill="#d0d7d4db" glyphName="GITHUB_CIRCLE" onMouseClicked="#handleGit" size="30" wrappingWidth="33.000015169382095" />
+               </graphic>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label contentDisplay="RIGHT" disable="true" layoutX="280.0" layoutY="522.0" prefHeight="17.0" prefWidth="193.0" text="Be here" textFill="WHITE" visible="false">
+         <font>
+            <Font name="Zapfino" size="22.0" />
+         </font>
+         <graphic>
+            <MaterialDesignIconView fill="WHITE" glyphName="CHECKBOX_MARKED_CIRCLE_OUTLINE" size="28" />
+         </graphic>
+      </Label>
+      <Label disable="true" layoutX="376.0" layoutY="569.0" prefHeight="95.0" prefWidth="277.0" text="Every day, all day." textFill="WHITE" visible="false">
+         <font>
+            <Font name="Zapfino" size="22.0" />
+         </font>
+      </Label>
+      <Label accessibleRole="BUTTON" contentDisplay="GRAPHIC_ONLY" layoutX="1060.0" layoutY="1.0" onMouseClicked="#handleClose" prefHeight="17.0" prefWidth="11.0" textFill="WHITE">
+         <font>
+            <Font name="AppleGothic Regular" size="20.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="#d73939ab" glyphName="CIRCLE" size="12" />
+         </graphic>
+      </Label>
+      <Label layoutX="212.0" layoutY="552.0" prefHeight="112.0" prefWidth="346.0" text="Your presence matters!" textFill="WHITE">
+         <font>
+            <Font name="Zapfino" size="25.0" />
+         </font>
+      </Label>
+      <Label accessibleRole="BUTTON" contentDisplay="GRAPHIC_ONLY" layoutX="1042.0" layoutY="1.0" onMouseClicked="#handlemin" prefHeight="17.0" prefWidth="11.0" textFill="WHITE">
+         <font>
+            <Font name="AppleGothic Regular" size="20.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="#ffc454ab" glyphName="CIRCLE" size="12" />
+         </graphic>
+      </Label>
+   </children>
+</AnchorPane>
