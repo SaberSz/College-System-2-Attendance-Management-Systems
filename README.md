@@ -1,5 +1,9 @@
 # College-System-2-Attendance-Management-Systems
-This is a attendance management software developed using JavaFX for the frontend and MySql for the backend. This is part 2 of the main project College System.
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+
+
+  Attendance Management System deals with the maintenance of the student’s attendance details. It engenders the attendance of the student on the substratum of one's presence in class. It is maintained on a circadian substructure by the faculty members of the university. The faculty members can authenticate into the system utilizing their faculty identification number and a particular password. The faculty members will be responsible for the attendance of the students in the class. Only if the student present on that particular period, the attendance will be calculated. These reports can later on withal be rectified if there transpire to be any errors. A faculty member can withal facilely transition into this software by importing their old database in the form of .CSV files. The software additionally sanctions a student to authenticate utilizing his/her university seat number and date of inception as the username and password respectively, to check his/her attendance status, apply for a leave or even submit a medical certificate in the form of .jpg  files to the class edifier. The student can additionally send a request for rectifying some errors that may be present in his/her attendance. Conclusively, it additionally includes a secure messaging feature that sanctions each system user to communicate with one another.
+
 
 ### Libraries used :
 
