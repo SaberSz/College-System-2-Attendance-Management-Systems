@@ -187,7 +187,6 @@ var dtjava = function() {
             ie = false;
 	}
 
-	var noPluginWebBrowser = edge || chrome || noActiveX;
 
         //we are not required to detect everything and can leave values null as
         // long as we later treat them accordingly.
@@ -263,6 +262,11 @@ var dtjava = function() {
                 }
             }
         }
+
+       var firefox = (navigator.userAgent.match(/Firefox/i) != null);
+
+       var noPluginWebBrowser = edge || chrome || noActiveX || (firefox && (jre == null));
+
 
         return {haveDom:dom, wk:webkit, ie:ie, win:windows,
                 linux:linux, mac:mac, op: opera, chrome:chrome, edge:edge,

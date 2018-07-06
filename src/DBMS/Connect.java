@@ -53,9 +53,27 @@ public class Connect {
        catch(Exception e)
        {
           //obj1.exceptionDialog(e);
-           JOptionPane.showMessageDialog(null, e);
-           System.exit(0);
-           return null;
+            try {
+                Class.forName(JDBC_DRIVER);
+
+
+
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Attendance_Mgmt_System", USER, PASS);
+                //if(Updates())
+                {
+                    if (c == 0) {
+                        // AlertBox.notificationInfo("Hello","Database Connection is Successful");
+                        //JOptionPane.showMessageDialog(null, "Database Connection is Successful");
+                    }
+                    c++;
+                }
+
+                return conn;
+            } catch (Exception k) {
+                JOptionPane.showMessageDialog(null, k);
+                System.exit(0);
+                return null;
+            }
        }
        
        
